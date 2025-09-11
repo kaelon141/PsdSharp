@@ -1,6 +1,6 @@
 namespace PsdSharp;
 
-public enum ColorMode
+public enum ColorMode : ushort
 {
     Bitmap = 0,
     Grayscale = 1,
