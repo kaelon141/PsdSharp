@@ -1,6 +1,6 @@
 namespace PsdSharp;
 
-public enum ImageCompression
+public enum ImageCompression : ushort
 {
     Raw = 0,
     Rle = 1,

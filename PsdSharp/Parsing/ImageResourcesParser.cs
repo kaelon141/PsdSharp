@@ -8,7 +8,7 @@ internal static class ImageResourcesParser
         
         var list = new List<ImageResource>();
         uint amountConsumed = 0;
-
+   
         while (amountConsumed < sectionLength)
         {
             var signature = ctx.Reader.ReadSignature();
@@ -18,6 +18,11 @@ internal static class ImageResourcesParser
             var name = ctx.Reader.ReadPascalString();
             
             var resourceDataLength = ctx.Reader.ReadUInt32();
+            if (resourceDataLength % 2 == 1)
+            {
+                resourceDataLength++;
+            }
+            
             var dataBuffer = resourceDataLength == 0 ? Array.Empty<byte>() : new byte[resourceDataLength];
             ctx.Reader.ReadIntoBuffer(dataBuffer);
             

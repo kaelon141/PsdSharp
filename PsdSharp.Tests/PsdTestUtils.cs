@@ -74,4 +74,12 @@ internal static class PsdTestUtils
         buf[0] = 0x00;
         return buf;
     }
+
+    public static Stream GetAsset(string assetName)
+    {
+        var fullName = typeof(PsdTestUtils).Namespace + ".Assets." + assetName;
+        var stream = typeof(PsdTestUtils).Assembly.GetManifestResourceStream(fullName);
+        if (stream == null) throw new InvalidOperationException($"Could not find asset '{fullName}'");
+        return stream;
+    }
 }

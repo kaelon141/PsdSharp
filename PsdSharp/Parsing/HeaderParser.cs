@@ -31,6 +31,7 @@ internal static class HeaderParser
 
         var colorMode = ctx.Reader.ReadUInt16();
         if(!Enum.IsDefined(typeof(ColorMode), colorMode)) throw ParserUtils.DataCorrupt();
+        ctx.InitColorMode((ColorMode) colorMode);
 
         return new PsdHeader
         {
@@ -39,7 +40,7 @@ internal static class HeaderParser
             HeightInPixels = heightPx,
             WidthInPixels = widthPx,
             ChannelDepth = checked((byte)depth),
-            ColorMode = (ColorMode)colorMode,
+            ColorMode = (ColorMode) colorMode,
         };
     }
 }

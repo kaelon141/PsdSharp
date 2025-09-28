@@ -8,23 +8,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d2cdf-0308-4e4b-b548-ab6fb8121c3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ColorModeDataParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ParseContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ParserUtils.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdLoadOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/PsdHeader.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Assets/test.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ColorModeParserTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/HeaderParserTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/BitFlags.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/GlobalLayerMaskInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Layer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Rectangle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.sln" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/ColorMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/ColorMode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/PsdSharp.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Tests/PsdSharp.Tests.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/AdditionalLayerInfoKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/AdditionalLayerInfoKey.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/BlendModeKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/BlendModeKey.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/ImageCompression.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/ImageCompression.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskParser.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ParseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ParseContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,39 +46,48 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1af41839925b4409b823837d7b5f29d691940/c3/9897c995/Rectangle.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/33968ce01f064f6fad90c360147bc2b55308/26/d7ae70c8/UnicodeEncoding.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/739c03cff0c74bfc995c6d1bbf84d52f33d08/42/18d5d597/Assert.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae85e80ef83f4a10af2b9f0d7c4551eaca708/6a/4db82da1/Convert.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae85e80ef83f4a10af2b9f0d7c4551eaca708/94/30e97db0/Encoding.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae85e80ef83f4a10af2b9f0d7c4551eaca708/d0/dd6bf7f0/BinaryReader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ae85e80ef83f4a10af2b9f0d7c4551eaca708/d2/627d58c8/Stream.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fca9272907db49878fbb0739e2abf51c33108/24/e08c3e4a/Assert.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/11c81f7d647ca2284fbbdd3742a75c867d8c44a98e18c3b08dfd485cd5ce/StringAsserts.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5eb1a14be178edea9c5ead9e03bcf96d9df78d47db4962cc1d3a8e5fc864f/StringBuilderCache.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/63ea4f10acedf820bd72ddba31522e01cd67b92481e333a18d70338c6bd0/BinaryPrimitives.ReadLittleEndian.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6759c9e86085d2e4796e66824d1e6bcde85215244243079466ada44a6cf0/BinaryReader.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/76821a72a92b7f845e9ad7971cab05798f9ee63882d2a7f4246a24c6e7e5f/SR.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7d99559a73b587242b1ba963b0a767bc3bcc327540a524af42f3f38c6a7622a1/Half.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a06b314b31fa2ec54ffc18e9d057e91891cf72182dd6ce1985a0a43c/MemoryStream.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c7102cd0ffb8973777e61b1942c3fffac7e14016a511d055c3adf73ff91748/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d1287462d4ec4078c61b8e92a0952fb7de3e7e877d279e390a4c136a6365126/Stream.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d8d37ef7f619a4ddd71a0f5e4bd9f894aadaf4356a2e0c3dbebbacf78f70fd/Decimal.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e245146cdac6404f5fab1e1dc07225cdd8d6f5e2e211c890dd9457d9e68f1/UTF8Encoding.Sealed.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/c4bb0f332b5448a580bfb9cf1296a694ca00/de/7bfb044e/0200001Apdb26.il" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3fb48817b9c64f23a857745919814794cd08/f0/e24b2477/BinaryPrimitives.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdbc0e69be1f48bf9895cf8070bf0e68e26400/fd/75e9be7c/Span`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26a97b4ff6b692cbd94efc680c5f4f7b486209b515228996f89157d155e/ExceptionAsserts.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4743f513c7ddc8411223a46f0ca426ed929391acebcff993721dff2f0c6b34/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a8fb784972bca5f74669fc69e6471537bc24f9d75a8f1aa9032886da376cb/TestRunner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9edcd28baffe1339ed6f7b74ffe95d47cba0bb2059eb943e48f5c1638c74bd3b/Record.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ColorModeParserTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/HeaderParserTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/GlobalLayerMaskInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/ImageData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/ColorModeDataParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/ImageDataLoading.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/ParseContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/ParserUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/PsdLoadOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/PsdFile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/PsdHeader.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
@@ -86,7 +103,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Project.PsdSharp.Tests.executor&quot;: &quot;Run&quot;,
     &quot;00914376-1107-44dc-af3b-686bbfa4954c.executor&quot;: &quot;Debug&quot;,
+    &quot;7ce84f90-6ae2-4e9e-860e-eb90f45871f3.executor&quot;: &quot;Debug&quot;,
     &quot;8c964919-1faf-4083-80cb-334c7563f046.executor&quot;: &quot;Debug&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -100,7 +119,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -146,11 +165,71 @@
       <workItem from="1756844515854" duration="20172000" />
       <workItem from="1756938596672" duration="75000" />
       <workItem from="1756993832130" duration="3000" />
+      <workItem from="1757792684551" duration="1203000" />
+      <workItem from="1757883117311" duration="282000" />
+      <workItem from="1757883450125" duration="169000" />
+      <workItem from="1757883640035" duration="3045000" />
+      <workItem from="1757902357719" duration="1513000" />
+      <workItem from="1757903919982" duration="687000" />
+      <workItem from="1758373551201" duration="3903000" />
+      <workItem from="1759005492504" duration="5561000" />
+      <workItem from="1759017614758" duration="35000" />
+      <workItem from="1759017670297" duration="38000" />
+      <workItem from="1759017745854" duration="17393000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="150" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="341" />
+    <coverage-tree-state>
+      <expand>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Parsing 50% 242/481" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Parsing 50% 242/481" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="HeaderParser 100% 0/24" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Parsing 50% 242/481" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="ColorModeDataParser 0% 8/8" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+      </expand>
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,20 +261,11 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs</url>
-          <line>128</line>
-          <properties documentPath="C:\source\PsdSharp\PsdSharp\Parsing\BigEndianReader.cs" containingFunctionPresentation="Method 'ReadPascalString'">
-            <startOffsets>
-              <option value="4189" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4284" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

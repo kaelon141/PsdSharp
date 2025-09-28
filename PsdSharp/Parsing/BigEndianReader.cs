@@ -6,18 +6,78 @@ namespace PsdSharp.Parsing;
 internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen = false) : IDisposable
 {
     private bool _disposed;
+
+    private byte[] _internalBuffer = [];
     
     public BigEndianReader(Stream input) : this(input, Encoding.Latin1) {}
     
     public Encoding Encoding => encoding;
 
+    private long _numBytesRead;
+
+    public long Position => input.CanSeek ? input.Position : _numBytesRead;
+
     private ReadOnlySpan<byte> InternalRead(Span<byte> buffer)
     {
         ThrowIfDisposed();
-        
-        input.ReadExactly(buffer);
+
+        if (buffer.Length == 0)
+        {
+            return buffer;
+        }
+
+        // First satisfy from any previously backtracked bytes.
+        var numBytesFromInternal = 0;
+        if (_internalBuffer.Length > 0)
+        {
+            numBytesFromInternal = Math.Min(_internalBuffer.Length, buffer.Length);
+            _internalBuffer.AsSpan(0, numBytesFromInternal).CopyTo(buffer);
+
+            if (numBytesFromInternal == _internalBuffer.Length)
+            {
+                // Consumed entire internal buffer.
+                _internalBuffer = [];
+            }
+            else
+            {
+                // Slice off consumed bytes (keep remaining for future reads).
+                var remaining = new byte[_internalBuffer.Length - numBytesFromInternal];
+                Array.Copy(_internalBuffer, numBytesFromInternal, remaining, 0, remaining.Length);
+                _internalBuffer = remaining;
+            }
+            
+            _numBytesRead += numBytesFromInternal;
+        }
+
+        // Read any remaining bytes directly from the underlying stream.
+        if (numBytesFromInternal < buffer.Length)
+        {
+            input.ReadExactly(buffer[numBytesFromInternal..]);
+            _numBytesRead += numBytesFromInternal;
+        }
 
         return buffer;
+    }
+    
+    private bool TryReadFromInternalBuffer(out byte value)
+    {
+        if (_internalBuffer.Length > 0)
+        {
+            value = _internalBuffer[0];
+            if (_internalBuffer.Length == 1)
+            {
+                _internalBuffer = [];
+            }
+            else
+            {
+                var remaining = new byte[_internalBuffer.Length - 1];
+                Array.Copy(_internalBuffer, 1, remaining, 0, remaining.Length);
+                _internalBuffer = remaining;
+            }
+            return true;
+        }
+        value = 0;
+        return false;
     }
     
     private void ThrowIfDisposed()
@@ -56,6 +116,7 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
     {
         ThrowIfDisposed();
 
+        if (TryReadFromInternalBuffer(out var b1)) return b1;
         int b = input.ReadByte();
         if (b < 0) throw new EndOfStreamException();
         return (byte) b;
@@ -63,7 +124,8 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
     public virtual sbyte ReadSByte()
     {
         ThrowIfDisposed();
-        
+
+        if (TryReadFromInternalBuffer(out var b1)) return unchecked((sbyte)b1);
         int b = input.ReadByte();
         if (b < 0) throw new EndOfStreamException();
         return unchecked((sbyte) b);
@@ -113,7 +175,6 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
             return (null, alignmentSize);
         }
         
-        //put small strings on the stack for performance, otherwise rent heap space
         Span<byte> buffer = stackalloc byte[stringLength];
         InternalRead(buffer);
         
@@ -124,10 +185,10 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         {
             Span<byte> buf = stackalloc byte[alignmentSize - remainingPadding];
             InternalRead(buf);
+            bytesConsumed += buf.Length;
         }
         
-        var totalBytesConsumed = checked((ushort)(bytesConsumed + (alignmentSize - remainingPadding)));
-        return (encoding.GetString(buffer), totalBytesConsumed);
+        return (encoding.GetString(buffer), unchecked((ushort)(bytesConsumed)));
     }
 
     public virtual (string? String, long NumBytesRead) ReadUnicodeString()
@@ -180,9 +241,22 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
     {
         Span<byte> buffer = stackalloc byte[4];
         InternalRead(buffer);
-        return Encoding.ASCII.GetString(buffer);
+        return encoding.GetString(buffer);
     }
 
+    public virtual byte[] ReadUntilEnd()
+    {
+        if (input.CanSeek)
+        {
+            var buffer = new byte[input.Length - input.Position];
+            input.ReadExactly(buffer);
+            return buffer;
+        }
+        
+        var ms = new MemoryStream();
+        input.CopyTo(ms);
+        return ms.ToArray();
+    }
     public virtual void ReadIntoBuffer(Span<byte> buffer)
     {
         if (buffer.Length == 0) return;
@@ -190,7 +264,21 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         InternalRead(buffer);
     }
 
+    public virtual void CopyTo(Stream destination, long amountBytes)
+    {
+        var buffer = new byte[1024 * 1024 * 16];
+        while (amountBytes > 0)
+        {
+            var bytesToCopy = (int) Math.Min(buffer.Length, amountBytes);
+            InternalRead(buffer.AsSpan(0, bytesToCopy));
+            destination.Write(buffer, 0, bytesToCopy);
+            amountBytes -= bytesToCopy;
+        }
+    }
+
     public void Skip(int numberOfBytes)
+        => Skip((long)numberOfBytes);
+    public void Skip(long numberOfBytes)
     {
         ThrowIfDisposed();
         if(numberOfBytes <= 0) return;
@@ -198,7 +286,7 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         //for small sizes, use a stack buffer. Otherwise, rent shared heap space.
         if (numberOfBytes < 512)
         {
-            Span<byte> buf = stackalloc byte[numberOfBytes];
+            Span<byte> buf = stackalloc byte[unchecked((int)numberOfBytes)];
             InternalRead(buf);
             return;
         }
@@ -208,7 +296,7 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         {
             while (numberOfBytes > 0)
             {
-                var span = skipBuffer.AsSpan(0, Math.Min(numberOfBytes, skipBuffer.Length));
+                var span = skipBuffer.AsSpan(0, (int) Math.Min(numberOfBytes, skipBuffer.Length));
                 InternalRead(span);
                 numberOfBytes -= span.Length;
             }
@@ -217,6 +305,22 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         {
             System.Buffers.ArrayPool<byte>.Shared.Return(skipBuffer);
         }
-
     }
+    
+    //Story bytes into a temporary buffer, as if seeking backwards.
+    //The bytes are stored in a separate buffer as the stream may not be seekable.
+    public void Backtrack(byte[] bytes)
+    {
+        var newBuffer = new byte[_internalBuffer.Length + bytes.Length];
+        Array.Copy(_internalBuffer, 0, newBuffer, 0, _internalBuffer.Length);
+        Array.Copy(bytes, 0, newBuffer, _internalBuffer.Length, bytes.Length);
+        _internalBuffer = newBuffer;
+        
+        _numBytesRead -= bytes.Length;
+    }
+
+    public bool CanSeek => input.CanSeek;
+    public void Seek(long position)
+        => input.Seek(position, SeekOrigin.Begin);
+    public long Length => input.Length;
 }

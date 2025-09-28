@@ -10,6 +10,10 @@
     <ItemGroup>
         <PackageReference Include="coverlet.collector" Version="6.0.2"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="xunit.v3" Version="3.0.1" />
     </ItemGroup>
 
@@ -18,7 +22,14 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
+        <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\test.psd" />
+      <EmbeddedResource Include="Assets\test.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
 </Project>

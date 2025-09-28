@@ -252,5 +252,208 @@ namespace PsdSharp.Tests.Parsing
             Assert.Equal(6, result.NumBytesRead);
             Assert.Equal(ms.Length, ms.Position);
         }
+
+        // ----- Backtrack ----------------------------------------------------
+
+        [Fact]
+        public void Backtrack_SingleByte_ReadByteSequence()
+        {
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x02, 0x03), Encoding.Latin1);
+            r.Backtrack([0x01]);
+            Assert.Equal(0x01, r.ReadByte());
+            Assert.Equal(0x02, r.ReadByte());
+            Assert.Equal(0x03, r.ReadByte());
+        }
+
+        [Fact]
+        public void Backtrack_MultipleBytes_ReadUInt32_Then_ReadByte()
+        {
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x44, 0x55), Encoding.Latin1);
+            r.Backtrack([0x11, 0x22, 0x33]); // internal buffer now: 11 22 33
+            // ReadUInt32 should consume: 11 22 33 44 (big-endian)
+            uint val = r.ReadUInt32();
+            Assert.Equal(0x11223344u, val);
+            // Remaining underlying stream byte 0x55
+            Assert.Equal(0x55, r.ReadByte());
+        }
+
+        [Fact]
+        public void Backtrack_PartialDrain_With_ReadByte_Then_ReadUInt16()
+        {
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x04, 0x05), Encoding.Latin1);
+            r.Backtrack([0x01, 0x02, 0x03]); // internal: 01 02 03
+            Assert.Equal(0x01, r.ReadByte()); // remaining internal: 02 03
+            ushort next = r.ReadUInt16(); // consumes 02 03
+            Assert.Equal(0x0203, next);
+            Assert.Equal(0x04, r.ReadByte());
+            Assert.Equal(0x05, r.ReadByte());
+        }
+
+        [Fact]
+        public void Backtrack_MultipleCalls_AppendOrder_Fifo()
+        {
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0xAA), Encoding.Latin1);
+            r.Backtrack([0x03]); // internal: 03
+            r.Backtrack([0x01, 0x02]); // internal: 03 01 02 (append semantics)
+            Assert.Equal(0x03, r.ReadByte());
+            Assert.Equal(0x01, r.ReadByte());
+            Assert.Equal(0x02, r.ReadByte());
+            Assert.Equal(0xAA, r.ReadByte());
+        }
+        [Fact]
+        public void Read_SignedIntegers_BigEndian_NegativeValues()
+        {
+            // Int16: 0xFFFE => -2, Int32: 0x80000000 => int.MinValue, Int64: 0xFFFFFFFFFFFFFFFE => -2
+            var data = PsdTestUtils.Concat(
+                new byte[] { 0xFF, 0xFE },
+                new byte[] { 0x80, 0x00, 0x00, 0x00 },
+                new byte[] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE }
+            );
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data));
+            Assert.Equal(-2, r.ReadInt16());
+            Assert.Equal(int.MinValue, r.ReadInt32());
+            Assert.Equal(-2L, r.ReadInt64());
+        }
+
+        [Fact]
+        public void Read_Floats_BigEndian()
+        {
+            // Half 1.0 => 0x3C00; Single 1.0f => 0x3F800000; Double 1.5 => 0x3FF8000000000000
+            var data = PsdTestUtils.Concat(
+                new byte[] { 0x3C, 0x00 },
+                new byte[] { 0x3F, 0x80, 0x00, 0x00 },
+                new byte[] { 0x3F, 0xF8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }
+            );
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data));
+            Assert.Equal((Half)1.0, r.ReadHalf());
+            Assert.Equal(1.0f, r.ReadSingle());
+            Assert.Equal(1.5, r.ReadDouble());
+        }
+
+        [Fact]
+        public void ReadSignature_ReturnsAscii4_And_ThrowsOnEof()
+        {
+            using (var r = new BigEndianReader(PsdTestUtils.Ms((byte)'8', (byte)'B', (byte)'P', (byte)'S'), Encoding.Latin1))
+            {
+                Assert.Equal("8BPS", r.ReadSignature());
+            }
+
+            using (var r2 = new BigEndianReader(PsdTestUtils.Ms((byte)'8', (byte)'B', (byte)'P'), Encoding.Latin1))
+            {
+                Assert.Throws<EndOfStreamException>(() => r2.ReadSignature());
+            }
+        }
+
+        [Fact]
+        public void ReadIntoBuffer_FillsSpan_And_ThrowsOnShortRead()
+        {
+            var bytes = new byte[] { 1, 2, 3, 4 };
+            using var r = new BigEndianReader(PsdTestUtils.Ms(bytes));
+            Span<byte> buf = stackalloc byte[3];
+            r.ReadIntoBuffer(buf);
+            Assert.Equal(new byte[] { 1, 2, 3 }, buf.ToArray());
+
+            var buf2 = new byte[3];
+            // Only one byte remains; asking for three should throw
+            Assert.Throws<EndOfStreamException>(() => r.ReadIntoBuffer(buf2.AsSpan()));
+        }
+
+        [Fact]
+        public void CopyTo_CopiesExact_And_ThrowsOnInsufficientBytes()
+        {
+            using var r1 = new BigEndianReader(PsdTestUtils.Ms(1, 2, 3, 4, 5));
+            using var dest = new MemoryStream();
+            r1.CopyTo(dest, 3);
+            Assert.Equal(new byte[] { 1, 2, 3 }, dest.ToArray());
+            Assert.Equal(4, r1.ReadByte());
+
+            using var r2 = new BigEndianReader(PsdTestUtils.Ms(10, 11));
+            using var dest2 = new MemoryStream();
+            Assert.Throws<EndOfStreamException>(() => r2.CopyTo(dest2, 3));
+        }
+
+        [Fact]
+        public void Skip_Long_UsesPoolingPath_And_Advances()
+        {
+            int count = 2000; // > 512 to hit pooled path
+            var payload = Enumerable.Repeat((byte)0xAA, count).ToArray();
+            var data = PsdTestUtils.Concat(payload, new byte[] { 0xCC });
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data));
+            r.Skip((long)count);
+            Assert.Equal(0xCC, r.ReadByte());
+        }
+
+        [Fact]
+        public void Seek_CanSeek_Position_Works()
+        {
+            var bytes = new byte[] { 0x10, 0x20, 0x30, 0x40 };
+            using var ms = new MemoryStream(bytes, writable: false);
+            using var r = new BigEndianReader(ms, Encoding.Latin1);
+            Assert.True(r.CanSeek);
+            Assert.Equal(0, r.Position);
+            Assert.Equal(0x10, r.ReadByte());
+            Assert.Equal(1, r.Position);
+            r.Seek(2);
+            Assert.Equal(2, r.Position);
+            Assert.Equal(0x30, r.ReadByte());
+        }
+
+        [Fact]
+        public void Encoding_Property_Returns_ProvidedEncoding()
+        {
+            var enc = Encoding.UTF8;
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x00), enc);
+            Assert.Same(enc, r.Encoding);
+        }
+
+        [Fact]
+        public void ReadUnicodeString_Large_UsesArrayPool_And_ReturnsCorrectString()
+        {
+            int units = 2000; // > 512 bytes, triggers ArrayPool path in reader
+            var header = PsdTestUtils.BE32((uint)units);
+            var codeUnits = Enumerable.Repeat((ushort)0x0041, units).ToArray(); // 'A' repeated
+            var payload = PsdTestUtils.Utf16Be(codeUnits);
+            var data = PsdTestUtils.Concat(header, payload, new byte[] { 0x00, 0x00 }); // trailing terminator
+
+            using var r2 = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            var result = r2.ReadUnicodeString();
+
+            Assert.Equal(new string('A', units), result.String);
+            Assert.Equal(4 + units * 2 + 2, result.NumBytesRead);
+        }
+
+        [Fact]
+        public void ReadIntoBuffer_Drains_Internal_Then_Underlying()
+        {
+            // Internal buffer has 2 bytes; need 4 -> should pull remaining 2 from underlying stream
+            using var r3 = new BigEndianReader(PsdTestUtils.Ms(0x03, 0x04, 0x05), Encoding.Latin1);
+            r3.Backtrack(new byte[] { 0x01, 0x02 });
+            Span<byte> buf = stackalloc byte[4];
+            r3.ReadIntoBuffer(buf);
+            Assert.Equal(new byte[] { 1, 2, 3, 4 }, buf.ToArray());
+            Assert.Equal(0x05, r3.ReadByte());
+        }
+
+        [Fact]
+        public void Methods_Throw_When_Reader_Disposed()
+        {
+            var ms = new MemoryStream(new byte[] { 1, 2, 3 }, writable: false);
+            var reader = new BigEndianReader(ms, Encoding.Latin1);
+            reader.Dispose();
+
+            Assert.Throws<ObjectDisposedException>(() => reader.ReadByte());
+            Assert.Throws<ObjectDisposedException>(() => reader.ReadUInt16());
+            var span = new byte[1];
+            Assert.Throws<ObjectDisposedException>(() => reader.ReadIntoBuffer(span));
+        }
+
+        [Fact]
+        public void Methods_Throw_When_Underlying_Stream_Disposed()
+        {
+            var ms = new MemoryStream(new byte[] { 1, 2, 3 }, writable: false);
+            using var reader = new BigEndianReader(ms, Encoding.Latin1);
+            ms.Dispose();
+            Assert.Throws<ObjectDisposedException>(() => reader.ReadByte());
+        }
     }
 }

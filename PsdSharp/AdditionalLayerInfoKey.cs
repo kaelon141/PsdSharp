@@ -86,6 +86,20 @@ public class AdditionalLayerInfoKey
     public static AdditionalLayerInfoKey Unknown2 = new("Lr32", nameof(Unknown2), 8);
     public static AdditionalLayerInfoKey Unknown3 = new("Layr", nameof(Unknown3), 8);
     public static AdditionalLayerInfoKey Unknown4 = new("Alph", nameof(Unknown4), 8);
+    
+    public static AdditionalLayerInfoKey[] All = [EffectsLayer, TypeToolInfo, UnicodeLayerName, LaserId, ObjectsBasedEffectsLayerInfo,
+        Patterns1, Patterns2, Patterns3, Annotations, BlendClippingElements, BlendInteriorElements, Knockout, Protected,
+        SheetColor, ReferencePoint, GradientSettings, SectionDivider, ChannelBlendingRestrictions, SolidColorSheet,
+        PatternFill, GradientFill, VectorMask, VectorMaskPhotoshop6, TypeToolObject, ForeignEffectId, LayerNameSource,
+        PatternData, Metadata, LayerVersion, TransparencyShapesLayer, LayerMaskAsGlobalMask, VectorMaskAsGlobalmask,
+        BrightnessAndContract, ChannelMixer, ColorLookup, PlacedLayer, LinkedLayer1, LinkedLayer2, LinkedLayer3,
+        PhotoFilter, BlackWhite, ContentGeneratorExtraData, TextEngineData, Vibrance, UnicodePathName,
+        AnimationEffects, FilterMask, PlacedLayerData, VectorStrokeData, VectorStrokeContentData,
+        UsingAlignedRendering, VectorOriginationData, PixelSourceDataCc, CompositorUsed,
+        PixelSourceDataCc2015, Artboard1, Artboard2, Artboard3, SmartObjectLayerData,
+        SavingMergedTransparency1, SavingMergedTransparency2, SavingMergedTransparency3,
+        UserMask, Exposure, FilterEffects1, FilterEffects2,
+        Unknown1, Unknown2, Unknown3, Unknown4];
 
-
+    public static IDictionary<string, AdditionalLayerInfoKey> ByKey = All.ToDictionary(k => k.Key);
 }

@@ -12,7 +12,7 @@ public class BlendModeKey
     }
     
     public static BlendModeKey Passthrough = new("pass", nameof(Passthrough));
-    public static BlendModeKey Normal = new("pass", nameof(Normal));
+    public static BlendModeKey Normal = new("norm", nameof(Normal));
     public static BlendModeKey Dissolve = new("diss", nameof(Dissolve));
     public static BlendModeKey Darken = new("dark", nameof(Darken));
     public static BlendModeKey Multiply = new("mul ", nameof(Multiply));
@@ -39,4 +39,13 @@ public class BlendModeKey
     public static BlendModeKey Saturation = new("sat ", nameof(Saturation));
     public static BlendModeKey Color = new("colr", nameof(Color));
     public static BlendModeKey Luminosity = new("lum ", nameof(Luminosity));
+
+    public static BlendModeKey[] All =
+    [
+        Passthrough, Normal, Dissolve, Darken, Multiply, ColorBurn, LinearBurn,
+        DarkerColor, Lighten, Screen, ColorDodge, LinearDodge, LighterColor, Overlay, SoftLight, HardLight, VividLight,
+        LinearLight, PinLight, HardMix, Difference, Exclusion, Subtract, Divide, Hue, Saturation, Color, Luminosity
+    ];
+    
+    public static Dictionary<string, BlendModeKey> ByKey = All.ToDictionary(x => x.Key);
 }
