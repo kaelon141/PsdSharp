@@ -1,3 +1,4 @@
+using PsdSharp.Images;
 using PsdSharp.Parsing;
 
 namespace PsdSharp;

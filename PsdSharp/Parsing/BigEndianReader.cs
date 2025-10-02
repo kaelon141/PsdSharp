@@ -276,6 +276,17 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         }
     }
 
+    public virtual void CopyTo(Stream destination)
+    {
+        if (_internalBuffer.Length > 0)
+        {
+            destination.Write(_internalBuffer, 0, _internalBuffer.Length);
+            _internalBuffer = [];
+        }
+        
+        input.CopyTo(destination);
+    }
+
     public void Skip(int numberOfBytes)
         => Skip((long)numberOfBytes);
     public void Skip(long numberOfBytes)
@@ -323,4 +334,5 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
     public void Seek(long position)
         => input.Seek(position, SeekOrigin.Begin);
     public long Length => input.Length;
+    public long Read => new StreamReader(input).ReadToEnd().Length;
 }

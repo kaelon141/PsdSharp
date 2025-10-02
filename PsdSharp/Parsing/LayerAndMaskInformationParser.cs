@@ -1,10 +1,10 @@
-using System.Text;
+using PsdSharp.Images;
 
 namespace PsdSharp.Parsing;
 
-internal class LayerAndMaskInformationParser
+internal static class LayerAndMaskInformationParser
 {
-    public static (List<Layer> Layers, GlobalLayerMaskInfo GlobalLayerMaskInfo, List<TaggedBlock> TaggedBlocks) Parse(ParseContext ctx)
+    public static (List<Layer> Layers, GlobalLayerMaskInfo GlobalLayerMaskInfo, List<TaggedBlock> TaggedBlocks) Parse(ParseContext ctx, PsdHeader header)
     {
         var sectionLength = ctx.Traits.ReadLenN();
 
@@ -13,7 +13,7 @@ internal class LayerAndMaskInformationParser
             return ([], new GlobalLayerMaskInfo(), []);
         }
         
-        var layers = ParseLayerInfo(ctx);
+        var layers = ParseLayerInfo(ctx, header.ChannelDepth);
         var globalLayerMaskInfo = ParseGlobalLayerMaskInfo(ctx);
         var taggedBlocks = new List<TaggedBlock>();
         ParseTaggedBlocks(ctx, taggedBlocks, padding: 4);
@@ -21,7 +21,7 @@ internal class LayerAndMaskInformationParser
         return (layers, globalLayerMaskInfo, taggedBlocks);
     }
 
-    private static List<Layer> ParseLayerInfo(ParseContext ctx)
+    private static List<Layer> ParseLayerInfo(ParseContext ctx, byte channelDepth)
     {
         var layerInfoLength = ctx.Traits.ReadLenN();
         var layerCount = Math.Abs(ctx.Reader.ReadInt16());
@@ -39,8 +39,8 @@ internal class LayerAndMaskInformationParser
         {
             var layer = layers[i];
             var channelInfo = channelInfos[i];
-            var channelImageData = ParseChannelImageData(ctx, channelInfo);
-            layer.ImageData = channelImageData;
+            layer.ImageData = new PerChannelImageData(ctx, layer.Bounds, channelDepth, channelInfo);
+            
         }
 
         return layers.Values.ToList();
@@ -228,13 +228,6 @@ internal class LayerAndMaskInformationParser
                 RawData = data,
             });
         } while (true);
-    }
-
-    private static ImageData ParseChannelImageData(ParseContext ctx,
-        (short ChannelId, long DataLength)[] channelInfos)
-    {
-        var dataLength = channelInfos.Aggregate(0l, (acc, info) => acc + info.DataLength);
-        return new ImageData(ctx, dataLength, () => channelInfos);
     }
 
     private static GlobalLayerMaskInfo ParseGlobalLayerMaskInfo(ParseContext ctx)

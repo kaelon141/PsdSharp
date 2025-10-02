@@ -8,31 +8,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d2cdf-0308-4e4b-b548-ab6fb8121c3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Assets/test.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ColorModeParserTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/HeaderParserTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/BitFlags.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/GlobalLayerMaskInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Layer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Rectangle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageDataTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageResourcesParserTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Compression/Compression.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Compression/Rle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/BufferedSource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/ImageData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/ImageDataSource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/PerChannelImageData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/SeekableStreamSource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/TempFileSource.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/PsdSharp.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Tests/PsdSharp.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/AdditionalLayerInfoKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/AdditionalLayerInfoKey.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/BlendModeKey.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/BlendModeKey.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/ImageCompression.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/ImageCompression.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/ImageData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Layer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Layer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskParser.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ParseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ParseContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Rectangle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Rectangle.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +41,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/c4bb0f332b5448a580bfb9cf1296a694ca00/de/7bfb044e/0200001Apdb26.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3fb48817b9c64f23a857745919814794cd08/f0/e24b2477/BinaryPrimitives.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cdbc0e69be1f48bf9895cf8070bf0e68e26400/fd/75e9be7c/Span`1.cs" root0="FORCE_HIGHLIGHTING" />
@@ -56,28 +48,27 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4743f513c7ddc8411223a46f0ca426ed929391acebcff993721dff2f0c6b34/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a8fb784972bca5f74669fc69e6471537bc24f9d75a8f1aa9032886da376cb/TestRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9edcd28baffe1339ed6f7b74ffe95d47cba0bb2059eb943e48f5c1638c74bd3b/Record.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a936e224b6e41727392c14c158cf46c4bc249963f0fe8e2b5e3eb9af1595b17/StreamReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d37356fea9ed307068a31dc8ca3e5c5723187a9f164d0d76fc81bbf46f5/ThrowHelpers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e414b1dc488d6da566b0175c5a49dc48f0ea10c0661bed62352395375ebe80ac/EqualityAsserts.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/kaelon/source/PsdSharp/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ColorModeParserTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/HeaderParserTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageDataTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageResourcesParserTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Compression/Compression.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Compression/Rle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/GlobalLayerMaskInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PsdSharp/ImageData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/BufferedSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/ImageData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/ImageDataSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/PerChannelImageData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/SeekableStreamSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/TempFileSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/ColorModeDataParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" root0="FORCE_HIGHLIGHTING" />
@@ -124,7 +115,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.PsdSharp.Tests">
     <configuration name="PsdSharp.Tests" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -176,6 +167,8 @@
       <workItem from="1759017614758" duration="35000" />
       <workItem from="1759017670297" duration="38000" />
       <workItem from="1759017745854" duration="17393000" />
+      <workItem from="1759082209523" duration="3108000" />
+      <workItem from="1759428629260" duration="12671000" />
     </task>
     <servers />
   </component>
@@ -186,46 +179,54 @@
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="341" />
+    <option name="symbolColumnWidth" value="546" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 59% 669/1630" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 59% 669/1630" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 59% 669/1630" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Parsing 50% 242/481" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 59% 669/1630" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Parsing 76% 113/480" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Parsing 50% 242/481" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 59% 669/1630" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Parsing 76% 113/480" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="HeaderParser 100% 0/24" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 51% 638/1314" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="PsdSharp 27% 631/870" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Parsing 50% 242/481" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="ColorModeDataParser 0% 8/8" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 59% 669/1630" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Parsing 76% 113/480" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="ImageResourcesParser 96% 1/23" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 59% 669/1630" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="PsdSharp 44% 659/1173" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Parsing 76% 113/480" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="ColorModeDataParser 63% 3/8" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -261,6 +262,58 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageDataTests.cs</url>
+          <line>13</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageDataTests.cs" containingFunctionPresentation="Method 'Can_Parse_ImageData'">
+            <startOffsets>
+              <option value="382" />
+            </startOffsets>
+            <endOffsets>
+              <option value="417" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageDataTests.cs</url>
+          <line>8</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageDataTests.cs" containingFunctionPresentation="Method 'Can_Parse_ImageData'">
+            <startOffsets>
+              <option value="184" />
+            </startOffsets>
+            <endOffsets>
+              <option value="219" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp/Compression/Rle.cs</url>
+          <line>6</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp/Compression/Rle.cs" containingFunctionPresentation="Method 'Decode'">
+            <startOffsets>
+              <option value="186" />
+            </startOffsets>
+            <endOffsets>
+              <option value="234" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp/Compression/Rle.cs</url>
+          <line>7</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp/Compression/Rle.cs" containingFunctionPresentation="Method 'Decode'">
+            <startOffsets>
+              <option value="243" />
+            </startOffsets>
+            <endOffsets>
+              <option value="283" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

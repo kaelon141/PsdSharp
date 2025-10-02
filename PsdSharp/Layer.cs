@@ -1,3 +1,5 @@
+using PsdSharp.Images;
+
 namespace PsdSharp;
 
 public class Layer

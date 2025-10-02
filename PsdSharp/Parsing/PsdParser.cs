@@ -1,3 +1,5 @@
+using PsdSharp.Images;
+
 namespace PsdSharp.Parsing;
 
 internal class PsdParser(ParseContext context)
@@ -7,7 +9,7 @@ internal class PsdParser(ParseContext context)
         var header = HeaderParser.Parse(context);
         var colorModeData = ColorModeDataParser.Parse(context);
         var imageResources = ImageResourcesParser.Parse(context);
-        var layerAndMaskInfo = LayerAndMaskInformationParser.Parse(context);
+        var layerAndMaskInfo = LayerAndMaskInformationParser.Parse(context, header);
         
         return new PsdFile(header)
         {
@@ -16,12 +18,7 @@ internal class PsdParser(ParseContext context)
             Layers = layerAndMaskInfo.Layers.AsReadOnly(),
             GlobalLayerMaskInfo = layerAndMaskInfo.GlobalLayerMaskInfo,
             TaggedBlocks = layerAndMaskInfo.TaggedBlocks.AsReadOnly(),
-            ImageData = CreateImageData(context, header),
+            ImageData = new CompositeImageData(context, header),
         };
-    }
-
-    private static ImageData CreateImageData(ParseContext ctx, PsdHeader header)
-    {
-        return new ImageData(ctx, header.NumberOfChannels);
     }
 }
