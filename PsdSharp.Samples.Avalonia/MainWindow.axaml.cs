@@ -13,9 +13,6 @@ public partial class MainWindow : Window
         InitializeComponent();
         
         var psdStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("PsdSharp.Samples.Avalonia.Assets.test.psd");
-        var psdFile = PsdFile.Open(psdStream!);
-        SkiaView.Bitmap = psdFile.ImageData!.ToSkBitmap();
-        
         PsdView.PsdFile = psdStream;
     }
 }

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Samples.Avalonia",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.AvaloniaControls", "PsdSharp.AvaloniaControls\PsdSharp.AvaloniaControls.csproj", "{9D01F1B9-E69C-4A0D-B97E-1DB21401B31C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Samples.SkiaSharp", "PsdSharp.Samples.SkiaSharp\PsdSharp.Samples.SkiaSharp.csproj", "{205B45D9-8506-4B15-AAD3-BCF835EB6492}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{9D01F1B9-E69C-4A0D-B97E-1DB21401B31C}.Release|x64.Build.0 = Release|Any CPU
 		{9D01F1B9-E69C-4A0D-B97E-1DB21401B31C}.Release|x86.ActiveCfg = Release|Any CPU
 		{9D01F1B9-E69C-4A0D-B97E-1DB21401B31C}.Release|x86.Build.0 = Release|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Debug|x64.Build.0 = Debug|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Debug|x86.Build.0 = Debug|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|Any CPU.Build.0 = Release|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|x64.ActiveCfg = Release|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|x64.Build.0 = Release|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|x86.ActiveCfg = Release|Any CPU
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,5 +108,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A424B402-D04F-462B-BBD8-58CE00A6BE11} = {A509C62A-F04B-4A05-AF2E-61E35F60A93F}
 		{580A2AA6-5D4E-4426-AB97-BB217EB32A47} = {72BD9459-D14A-4381-8F1F-27665941EA87}
+		{205B45D9-8506-4B15-AAD3-BCF835EB6492} = {72BD9459-D14A-4381-8F1F-27665941EA87}
 	EndGlobalSection
 EndGlobal

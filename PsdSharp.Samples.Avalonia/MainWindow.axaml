@@ -2,38 +2,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PsdSharp.Samples.Avalonia"
         xmlns:psdsharp="clr-namespace:PsdSharp.AvaloniaControls;assembly=PsdSharp.AvaloniaControls"
-        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="512"
+        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="1024"
         x:Class="PsdSharp.Samples.Avalonia.MainWindow"
         Title="PsdSharp.Samples.Avalonia"
         Background="#272727">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Margin="10"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
-           <local:SkiaControl 
-               x:Name="SkiaView"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               Width="512"
-               Height="512"
-            />
-        </StackPanel>
-        <StackPanel Grid.Column="1" Margin="10"
-                    HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch">
             <psdsharp:PsdView
                 x:Name="PsdView"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Width="512"
-                Height="512"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Height="1024"
+                Width="1024"
             />
-        </StackPanel>
     </Grid>
 </Window>
