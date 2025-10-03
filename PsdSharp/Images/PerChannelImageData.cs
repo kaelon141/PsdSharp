@@ -5,6 +5,7 @@ namespace PsdSharp.Images;
 internal class PerChannelImageData : ImageData
 {
     private readonly Rectangle _bounds;
+    private readonly ColorMode _colorMode;
     private readonly byte _channelDepth;
     
     private readonly (short ChannelId, long DataLength)[] _channels;
@@ -14,9 +15,10 @@ internal class PerChannelImageData : ImageData
     private readonly List<ChannelData> _loadedChannels = new();
     private readonly bool _isPsb;
 
-    public PerChannelImageData(ParseContext ctx, Rectangle bounds, byte channelDepth, (short ChannelId, long DataLength)[] channels) : base(ctx.PsdLoadOptions.ImageDataLoading)
+    public PerChannelImageData(ParseContext ctx, Rectangle bounds, ColorMode colorMode, byte channelDepth, (short ChannelId, long DataLength)[] channels) : base(ctx.PsdLoadOptions.ImageDataLoading)
     {
         _bounds = bounds;
+        _colorMode = colorMode;
         _channelDepth = channelDepth;
         _channels = channels;
         _isPsb = ctx.Traits.PsdFileType == PsdFileType.Psb;
@@ -73,4 +75,8 @@ internal class PerChannelImageData : ImageData
             yield return channelData;
         }
     }
+
+    public override uint Width => _bounds.Width;
+    public override uint Height => _bounds.Height;
+    public override ColorMode ColorMode => _colorMode;
 }

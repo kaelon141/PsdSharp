@@ -14,6 +14,10 @@ public abstract class ImageData
 
     public abstract IEnumerable<ChannelData> GetChannels();
 
+    public abstract uint Width { get; }
+    public abstract uint Height { get; }
+    public abstract ColorMode ColorMode { get; }
+
     public class ChannelData
     {
         private short _channelId;

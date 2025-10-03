@@ -77,6 +77,10 @@ internal class CompositeImageData : ImageData
         }
     }
 
+    public override uint Width => _header.WidthInPixels;
+    public override uint Height => _header.HeightInPixels;
+    public override ColorMode ColorMode => _header.ColorMode;
+
     private byte[] StreamToByteArray(Stream stream)
     {
         var ms = new MemoryStream();

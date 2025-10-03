@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="PsdSharp.Samples.Avalonia/App.axaml" value="PsdSharp.Samples.Avalonia/PsdSharp.Samples.Avalonia.csproj" />
+        <entry key="PsdSharp.Samples.Avalonia/MainWindow.axaml" value="PsdSharp.Samples.Avalonia/PsdSharp.Samples.Avalonia.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -13,7 +13,7 @@ internal static class LayerAndMaskInformationParser
             return ([], new GlobalLayerMaskInfo(), []);
         }
         
-        var layers = ParseLayerInfo(ctx, header.ChannelDepth);
+        var layers = ParseLayerInfo(ctx, header);
         var globalLayerMaskInfo = ParseGlobalLayerMaskInfo(ctx);
         var taggedBlocks = new List<TaggedBlock>();
         ParseTaggedBlocks(ctx, taggedBlocks, padding: 4);
@@ -21,7 +21,7 @@ internal static class LayerAndMaskInformationParser
         return (layers, globalLayerMaskInfo, taggedBlocks);
     }
 
-    private static List<Layer> ParseLayerInfo(ParseContext ctx, byte channelDepth)
+    private static List<Layer> ParseLayerInfo(ParseContext ctx, PsdHeader header)
     {
         var layerInfoLength = ctx.Traits.ReadLenN();
         var layerCount = Math.Abs(ctx.Reader.ReadInt16());
@@ -39,7 +39,7 @@ internal static class LayerAndMaskInformationParser
         {
             var layer = layers[i];
             var channelInfo = channelInfos[i];
-            layer.ImageData = new PerChannelImageData(ctx, layer.Bounds, channelDepth, channelInfo);
+            layer.ImageData = new PerChannelImageData(ctx, layer.Bounds, header.ColorMode, header.ChannelDepth, channelInfo);
             
         }
 

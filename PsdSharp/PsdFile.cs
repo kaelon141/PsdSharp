@@ -27,7 +27,7 @@ public class PsdFile
     {
         options ??= new PsdLoadOptions();
         
-        var reader = new BigEndianReader(stream, options.StringEncoding);
+        var reader = new BigEndianReader(stream, options.StringEncoding, options.LeaveInputOpen);
         var parserContext = new ParseContext(reader, options);
         var parser = new PsdParser(parserContext);
         var file = parser.Parse();
