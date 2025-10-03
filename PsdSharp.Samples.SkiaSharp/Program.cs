@@ -37,7 +37,7 @@ public class Program
         _window.MakeCurrent();
         _gl = _window.CreateOpenGL();
         
-        var glInterface = GRGlInterface.Create(name => _gl.Context.GetProcAddress(name));
+        var glInterface = GRGlInterface.Create(name => _gl.Context.TryGetProcAddress(name, out var procAddr) ? procAddr : IntPtr.Zero);
         var grContext = GRContext.CreateGl(glInterface);
 
         _gl.GetInteger(GLEnum.Samples, out var samples);
