@@ -32,7 +32,7 @@ public class ColorType
     /// <summary>
     /// Blue, green, red, alpha, 8 bits each. 32 bits per pixel
     /// </summary>
-    public static ColorType Bgra888 = new([
+    public static ColorType Bgra8888 = new([
         new(Channel.Blue, 8),
         new(Channel.Green, 8),
         new(Channel.Red, 8),

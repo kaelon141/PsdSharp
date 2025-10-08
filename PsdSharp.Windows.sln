@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Win32", "PsdSharp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Samples.WinForms", "PsdSharp.Samples.WinForms\PsdSharp.Samples.WinForms.csproj", "{5A6818DC-F885-4F86-B6F8-5F64F6777A09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.ImageSharp", "PsdSharp.ImageSharp\PsdSharp.ImageSharp.csproj", "{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,18 @@ Global
 		{5A6818DC-F885-4F86-B6F8-5F64F6777A09}.Release|x64.Build.0 = Release|Any CPU
 		{5A6818DC-F885-4F86-B6F8-5F64F6777A09}.Release|x86.ActiveCfg = Release|Any CPU
 		{5A6818DC-F885-4F86-B6F8-5F64F6777A09}.Release|x86.Build.0 = Release|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Debug|x64.Build.0 = Debug|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Debug|x86.Build.0 = Debug|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Release|x64.ActiveCfg = Release|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Release|x64.Build.0 = Release|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Release|x86.ActiveCfg = Release|Any CPU
+		{A57357C0-CB09-4CEC-9458-E9C8F8D0CFC0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
