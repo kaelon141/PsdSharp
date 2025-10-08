@@ -1,0 +1,1 @@
+Extension package for [PsdSharp](https://www.nuget.org/packages/PsdSharp/) for converting Photoshop image data to a [BitMapSource](https://learn.microsoft.com/en-us/dotnet/api/system.windows.media.imaging.bitmapsource) for rendering in WPF.

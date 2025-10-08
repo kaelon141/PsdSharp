@@ -6,16 +6,36 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <AssemblyName>PsdSharp.WPF</AssemblyName>
+
+        <IsPackable>true</IsPackable>
+        <PackageId>PsdSharp.WPF</PackageId>
+        <Version>1.0.1</Version>
+        <Authors>Kaelon141</Authors>
+        <Description>Extension package for PsdSharp for converting Photoshop image data to a BitMapSource for rendering in WPF.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/kaelon141/PsdSharp</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>logo.png</PackageIcon>
+        <PackageIconUrl>https://raw.githubusercontent.com/kaelon141/PsdSharp/refs/heads/main/logo.png</PackageIconUrl>
+        <PackageTags>photoshop psd psb adobe wpf</PackageTags>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
+        <None Include="../logo.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
+    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+        <PackageReference Include="PsdSharp" Version="1.0.1" />
     </ItemGroup>
-
+    <ItemGroup Condition="'$(Configuration)' != 'Release'">
+        <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
+    </ItemGroup>
+    
     <ItemGroup>
       <Reference Include="PresentationCore">
         <HintPath>..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\9.0.5\PresentationCore.dll</HintPath>

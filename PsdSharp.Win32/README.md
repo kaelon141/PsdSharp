@@ -1,0 +1,1 @@
+Extension package for [PsdSharp](https://www.nuget.org/packages/PsdSharp/) for converting Photoshop image data to a [System.Drawing.Bitmap](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.bitmap) for rendering with GDI+ graphics libraries, WinForms etc.

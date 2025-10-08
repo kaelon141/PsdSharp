@@ -4,14 +4,34 @@
         <TargetFramework>net9.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+
+        <IsPackable>true</IsPackable>
+        <PackageId>PsdSharp.Win32</PackageId>
+        <Version>1.0.1</Version>
+        <Authors>Kaelon141</Authors>
+        <Description>Extension package for PsdSharp for converting Photoshop image data to a System.Drawing.Bitmap for rendering with GDI+ graphics libraries, WinForms etc.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/kaelon141/PsdSharp</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>logo.png</PackageIcon>
+        <PackageIconUrl>https://raw.githubusercontent.com/kaelon141/PsdSharp/refs/heads/main/logo.png</PackageIconUrl>
+        <PackageTags>photoshop psd psb adobe win32 gdi gdiplus winforms</PackageTags>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
+        <None Include="../logo.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
     </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
+    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+        <PackageReference Include="PsdSharp" Version="1.0.1" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' != 'Release'">
+        <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
     </ItemGroup>
 
 </Project>
