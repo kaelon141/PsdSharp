@@ -11,27 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d2cdf-0308-4e4b-b548-ab6fb8121c3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/ColorType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/BitmapPlanarToRgbInterleavedConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/GreyscalePlanarToRgbInterleavedConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/IndexedPalleteToRgbInterleavedConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/LabPlanarToRgbInterleavedConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/PixelDataConverter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/RgbInterleaver.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/ImageResourceRegistry.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/ResolutionInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/ThumbnailResource.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/VersionInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.SkiaSharp/ImageDataExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/ImageDataExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ColorModeParserTests.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Images/ImageData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Images/ImageData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Images/PerChannelImageData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Images/PerChannelImageData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ColorModeDataParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ColorModeDataParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdHeader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdHeader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +31,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
@@ -82,12 +70,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9cfc923b6c76e597f2479273c2ad90a58195cf0c69a139781d03a6d72aaffc3/WindowExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9edcd28baffe1339ed6f7b74ffe95d47cba0bb2059eb943e48f5c1638c74bd3b/Record.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a1c515878d63f9a569da569abadba913d55492a49e86a7111b587632b6f78f1/RawImage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a3b28f92fcea47c0d762d91bd21e17593fdbf51f56ad1034aad532181cecb1/BinaryPrimitives.ReadBigEndian.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b64bb1d30d558e7ebb1dee5119823f261371780d4a920249d2c664d822f8b79/GLEnum.gen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d37356fea9ed307068a31dc8ca3e5c5723187a9f164d0d76fc81bbf46f5/ThrowHelpers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d6b757e154dd7f8c23e0e785431c97a76e4b9c6bdae38b978238421dbab55d/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7bc48c79f70bd7a187cf86258b2815e2deb22274953837f735bbfe18f6c69e2/MemoryExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d990486e21ecc217f9ef249898e8b493344a59df367b7bb2094142a6a148db9/WindowOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e17e3d40cbccf4423b5f15674689f696d72ba2d300196ab24ae93e238f87/Memory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e33542c1deafc57df01ed9a4cc3f329ac0ebb1ce21ea4cec6c17ae22ca5ab3/MemoryMarshal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e414b1dc488d6da566b0175c5a49dc48f0ea10c0661bed62352395375ebe80ac/EqualityAsserts.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecdc14a73bdd3aa6ef3a23cbbfbe2c20cc5af3cdb1242ca466013bbd143ec76/Assembly.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.AvaloniaControls/PsdView.cs" root0="FORCE_HIGHLIGHTING" />
@@ -110,6 +101,10 @@
     <setting file="file://$PROJECT_DIR$/PsdSharp/Compression/Rle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/GlobalLayerMaskInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResources/ImageResourceRegistry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResources/ResolutionInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResources/ThumbnailResource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResources/VersionInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/BufferedSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/ColorType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -148,33 +143,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.PsdSharp.Samples.Avalonia.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.PsdSharp.Samples.SkiaSharp.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.PsdSharp.Samples.WPF.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.PsdSharp.Samples.Win32.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.PsdSharp.Tests.executor&quot;: &quot;Run&quot;,
-    &quot;00914376-1107-44dc-af3b-686bbfa4954c.executor&quot;: &quot;Debug&quot;,
-    &quot;7ce84f90-6ae2-4e9e-860e-eb90f45871f3.executor&quot;: &quot;Debug&quot;,
-    &quot;8c964919-1faf-4083-80cb-334c7563f046.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;b08a6aa8-8a3b-4d0d-a3f1-167a8703f4b2.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.PsdSharp.Samples.Avalonia.executor": "Run",
+    ".NET Project.PsdSharp.Samples.SkiaSharp.executor": "Debug",
+    ".NET Project.PsdSharp.Samples.WPF.executor": "Run",
+    ".NET Project.PsdSharp.Samples.Win32.executor": "Run",
+    ".NET Project.PsdSharp.Tests.executor": "Run",
+    "00914376-1107-44dc-af3b-686bbfa4954c.executor": "Debug",
+    "7ce84f90-6ae2-4e9e-860e-eb90f45871f3.executor": "Debug",
+    "8c964919-1faf-4083-80cb-334c7563f046.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "b08a6aa8-8a3b-4d0d-a3f1-167a8703f4b2.executor": "Debug",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.PsdSharp.Samples.SkiaSharp">
     <configuration name="PsdSharp.Samples.Avalonia" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/PsdSharp.Samples.Avalonia/bin/Debug/net9.0/PsdSharp.Samples.Avalonia.exe" />
@@ -332,7 +327,7 @@
       <workItem from="1759457064655" duration="4700000" />
       <workItem from="1759462643730" duration="92000" />
       <workItem from="1759522842807" duration="1269000" />
-      <workItem from="1759863134975" duration="25569000" />
+      <workItem from="1759863134975" duration="28654000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,5 @@
+using PsdSharp.ImageResources;
+
 namespace PsdSharp.Parsing;
 
 internal static class ImageResourcesParser
@@ -25,13 +27,21 @@ internal static class ImageResourcesParser
             
             var dataBuffer = resourceDataLength == 0 ? Array.Empty<byte>() : new byte[resourceDataLength];
             ctx.Reader.ReadIntoBuffer(dataBuffer);
-            
-            list.Add(new ImageResource
+
+            if (ImageResourceRegistry.ResourceTypes.TryGetValue(resourceId, out var type))
             {
-                Id = resourceId,
-                Name = name.String,
-                RawData = dataBuffer,
-            });
+                var imageResource = (ImageResource)Activator.CreateInstance(type, name.String, dataBuffer)!;
+                list.Add(imageResource);
+            }
+            else
+            {
+                list.Add(new ImageResource
+                {
+                    Id = resourceId,
+                    Name = name.String,
+                    RawData = dataBuffer,
+                });
+            }
 
             amountConsumed += 4 + 2 + (uint)name.NumBytesRead + 4 + unchecked((uint)dataBuffer.Length);
         }
