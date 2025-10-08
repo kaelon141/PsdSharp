@@ -6,6 +6,7 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <AssemblyName>PsdSharp.WPF</AssemblyName>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.WPF</PackageId>
@@ -37,9 +38,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <Reference Include="PresentationCore">
-        <HintPath>..\..\..\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\9.0.5\PresentationCore.dll</HintPath>
-      </Reference>
+      <Reference Include="PresentationCore" Condition="'$(OS)' == 'Windows_NT'" />
     </ItemGroup>
 
 </Project>

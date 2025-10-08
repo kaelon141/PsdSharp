@@ -4,6 +4,7 @@
         <TargetFramework>net9.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <EnableWindowsTargeting>true</EnableWindowsTargeting>
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.Win32</PackageId>
