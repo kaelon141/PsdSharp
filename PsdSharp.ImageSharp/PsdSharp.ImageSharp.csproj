@@ -4,14 +4,34 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+
+        <IsPackable>true</IsPackable>
+        <PackageId>PsdSharp.ImageSharp</PackageId>
+        <Version>1.0.1</Version>
+        <Authors>Kaelon141</Authors>
+        <Description>Extension for PsdSharp to convert image data to an ImageSharp Image.</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/kaelon141/PsdSharp</RepositoryUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageIcon>logo.png</PackageIcon>
+        <PackageIconUrl>https://raw.githubusercontent.com/kaelon141/PsdSharp/refs/heads/main/logo.png</PackageIconUrl>
+        <PackageTags>photoshop psd psb adobe imagesharp</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
+        <None Include="README.md" Pack="true" PackagePath="\" />
+        <None Include="../logo.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="SixLabors.ImageSharp" Version="3.1.11" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+        <PackageReference Include="PsdSharp" Version="1.0.1" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' != 'Release'">
+        <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
     </ItemGroup>
 
 </Project>

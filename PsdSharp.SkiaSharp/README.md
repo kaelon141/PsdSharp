@@ -1,0 +1,1 @@
+Extension package for [PsdSharp](https://www.nuget.org/packages/PsdSharp/) for converting Photoshop image data to a [SkiaSharp](https://github.com/mono/SkiaSharp) `SKBitmap`.

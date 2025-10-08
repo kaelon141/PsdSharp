@@ -11,13 +11,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d2cdf-0308-4e4b-b548-ab6fb8121c3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/ImageResourceRegistry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/ResolutionInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/ThumbnailResource.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/ImageResources/VersionInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Avalonia/PsdSharp.Avalonia.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Avalonia/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.ImageSharp/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ImageResourcesParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.AvaloniaControls/PsdSharp.AvaloniaControls.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.AvaloniaControls/PsdView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Avalonia/PsdView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.ImageSharp/PsdSharp.ImageSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.ImageSharp/PsdSharp.ImageSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.Avalonia/PsdSharp.Samples.Avalonia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.Avalonia/PsdSharp.Samples.Avalonia.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.SkiaSharp/PsdSharp.SkiaSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/PsdSharp.SkiaSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.WPF/ImageDataExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.WPF/ImageDataExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.sln" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Layer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Layer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdHeader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdHeader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Rectangle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Rectangle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +143,7 @@
     <setting file="file://$PROJECT_DIR$/PsdSharp/PsdFileType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/PsdHeader.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
   </component>
@@ -327,7 +339,7 @@
       <workItem from="1759457064655" duration="4700000" />
       <workItem from="1759462643730" duration="92000" />
       <workItem from="1759522842807" duration="1269000" />
-      <workItem from="1759863134975" duration="28654000" />
+      <workItem from="1759863134975" duration="40517000" />
     </task>
     <servers />
   </component>
@@ -391,6 +403,7 @@
       <select />
     </coverage-tree-state>
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

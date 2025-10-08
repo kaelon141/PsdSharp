@@ -1,0 +1,1 @@
+Extension package for [PsdSharp](https://www.nuget.org/packages/PsdSharp/) for converting Photoshop image data to an [ImageSharp](https://github.com/SixLabors/ImageSharp) `Image`.

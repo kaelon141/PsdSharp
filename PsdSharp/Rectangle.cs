@@ -12,5 +12,5 @@ public readonly struct Rectangle(Point topLeft, Point bottomRight)
 public readonly struct Point(int x, int y)
 {
     public int X => x;
-    public int Y => x;
+    public int Y => y;
 }

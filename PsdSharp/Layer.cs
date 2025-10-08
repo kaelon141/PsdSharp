@@ -259,6 +259,6 @@ internal class MaskParameters
 
 public class TaggedBlock
 {
-    public AdditionalLayerInfoKey Key { get; set; }
-    public byte[] RawData { get; set; }
+    public required AdditionalLayerInfoKey Key { get; set; }
+    public required byte[] RawData { get; set; }
 }

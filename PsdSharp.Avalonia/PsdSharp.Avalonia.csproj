@@ -6,32 +6,32 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>true</IsPackable>
-        <PackageId>PsdSharp.SkiaSharp</PackageId>
+        <PackageId>PsdSharp.Avalonia</PackageId>
         <Version>1.0.1</Version>
         <Authors>Kaelon141</Authors>
-        <Description>Extension for PsdSharp to convert image data to a SkiaSharp SkBitmap.</Description>
+        <Description>Extension package for PsdSharp that adds an Avalonia control for viewing PSD files.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/kaelon141/PsdSharp</RepositoryUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageIcon>logo.png</PackageIcon>
         <PackageIconUrl>https://raw.githubusercontent.com/kaelon141/PsdSharp/refs/heads/main/logo.png</PackageIconUrl>
-        <PackageTags>photoshop psd psb adobe skia skiasharp</PackageTags>
+        <PackageTags>photoshop psd psb adobe avalonia</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\" />
         <None Include="../logo.png" Pack="true" PackagePath="\" />
     </ItemGroup>
-
+    
     <ItemGroup>
-      <PackageReference Include="SkiaSharp" Version="3.119.1" />
+      <PackageReference Include="Avalonia" Version="11.3.6" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
-        <PackageReference Include="PsdSharp" Version="1.0.1" />
+        <PackageReference Include="PsdSharp.SkiaSharp" Version="1.0.1" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
-        <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
+        <ProjectReference Include="..\PsdSharp.SkiaSharp\PsdSharp.SkiaSharp.csproj" />
     </ItemGroup>
 
 </Project>

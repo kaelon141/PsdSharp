@@ -1,10 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <TargetFramework>net9.0</TargetFramework>
+      
+    <IsPackable>true</IsPackable>
+    <PackageId>PsdSharp</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Kaelon141</Authors>
+    <Description>PsdSharp is a cross-platform .NET library for reading and rendering Photoshop PSD and PSB files, written entirely in managed C#.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/kaelon141/PsdSharp</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageIconUrl>https://raw.githubusercontent.com/kaelon141/PsdSharp/refs/heads/main/logo.png</PackageIconUrl>
+    <PackageTags>photoshop psd psb adobe</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="\" />
+    <None Include="../logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
 </Project>

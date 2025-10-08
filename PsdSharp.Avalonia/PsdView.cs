@@ -6,7 +6,7 @@ using PsdSharp.Parsing;
 using PsdSharp.SkiaSharp;
 using SkiaSharp;
 
-namespace PsdSharp.AvaloniaControls;
+namespace PsdSharp.Avalonia;
 
 public class PsdView : global::Avalonia.Controls.Control
 {

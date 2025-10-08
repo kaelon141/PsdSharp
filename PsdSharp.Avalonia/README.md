@@ -1,0 +1,1 @@
+Extension package for [PsdSharp](https://www.nuget.org/packages/PsdSharp/) that adds an [Avalonia](https://github.com/AvaloniaUI/Avalonia) control for viewing PSD files.

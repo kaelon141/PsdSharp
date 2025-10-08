@@ -8,5 +8,5 @@ public class PsdHeader
     public required uint WidthInPixels { get; init; }
     public required byte ChannelDepth { get; init; }
     public required ColorMode ColorMode { get; init; }
-    public byte[] ColorModeData { get; internal set; }
+    public byte[] ColorModeData { get; internal set; } = [];
 }

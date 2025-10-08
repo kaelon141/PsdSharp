@@ -32,6 +32,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\PsdSharp.AvaloniaControls\PsdSharp.AvaloniaControls.csproj" />
+      <ProjectReference Include="..\PsdSharp.Avalonia\PsdSharp.Avalonia.csproj" />
     </ItemGroup>
 </Project>

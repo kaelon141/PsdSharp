@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{72BD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Samples.Avalonia", "PsdSharp.Samples.Avalonia\PsdSharp.Samples.Avalonia.csproj", "{580A2AA6-5D4E-4426-AB97-BB217EB32A47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.AvaloniaControls", "PsdSharp.AvaloniaControls\PsdSharp.AvaloniaControls.csproj", "{9D01F1B9-E69C-4A0D-B97E-1DB21401B31C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Avalonia", "PsdSharp.Avalonia\PsdSharp.Avalonia.csproj", "{9D01F1B9-E69C-4A0D-B97E-1DB21401B31C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Samples.SkiaSharp", "PsdSharp.Samples.SkiaSharp\PsdSharp.Samples.SkiaSharp.csproj", "{205B45D9-8506-4B15-AAD3-BCF835EB6492}"
 EndProject
