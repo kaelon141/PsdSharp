@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.AvaloniaControls",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.Samples.SkiaSharp", "PsdSharp.Samples.SkiaSharp\PsdSharp.Samples.SkiaSharp.csproj", "{205B45D9-8506-4B15-AAD3-BCF835EB6492}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsdSharp.ImageSharp", "PsdSharp.ImageSharp\PsdSharp.ImageSharp.csproj", "{664871FD-643D-46F9-9AB8-DDAFBA3852F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,18 @@ Global
 		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|x64.Build.0 = Release|Any CPU
 		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|x86.ActiveCfg = Release|Any CPU
 		{205B45D9-8506-4B15-AAD3-BCF835EB6492}.Release|x86.Build.0 = Release|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Debug|x64.Build.0 = Debug|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Debug|x86.Build.0 = Debug|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Release|x64.ActiveCfg = Release|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Release|x64.Build.0 = Release|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Release|x86.ActiveCfg = Release|Any CPU
+		{664871FD-643D-46F9-9AB8-DDAFBA3852F5}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
