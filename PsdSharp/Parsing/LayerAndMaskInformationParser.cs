@@ -24,6 +24,10 @@ internal static class LayerAndMaskInformationParser
     private static List<Layer> ParseLayerInfo(ParseContext ctx, PsdHeader header)
     {
         var layerInfoLength = ctx.Traits.ReadLenN();
+        var endPos = ctx.Reader.Position + (int)layerInfoLength;
+        
+        if(layerInfoLength == 0) return new List<Layer>();
+        
         var layerCount = Math.Abs(ctx.Reader.ReadInt16());
 
         var layers = new Dictionary<uint, Layer>();
@@ -39,8 +43,15 @@ internal static class LayerAndMaskInformationParser
         {
             var layer = layers[i];
             var channelInfo = channelInfos[i];
-            layer.ImageData = new PerChannelImageData(ctx, layer.Bounds, header.ColorMode, header.ChannelDepth, channelInfo);
-            
+            layer.ImageData = new PerChannelImageData(ctx, header, layer.Bounds, channelInfo);
+        }
+        
+        //Photoshop sometimes aligns the layer info to 4 bytes, sometimes doesn't... so we need to verify the endPos
+        //and skip ahead manually if needed.
+        if (ctx.Reader.Position < endPos)
+        {
+            var bytesToSkip = endPos - ctx.Reader.Position;
+            ctx.Reader.Skip(bytesToSkip);
         }
 
         return layers.Values.ToList();
@@ -82,7 +93,7 @@ internal static class LayerAndMaskInformationParser
         {
             Bounds = new Rectangle(
                 topLeft: new Point(rectLeft, rectTop),
-                bottomRight: new Point(rectRight, rectBottom)
+                bottomRight: new Point(rectRight - 1, rectBottom - 1)
             ),
             BlendMode = blendMode,
             Opacity = opacity,
@@ -149,6 +160,12 @@ internal static class LayerAndMaskInformationParser
         if (flags.MaskParametersPresent && parametersFlags.VectorMaskFeatherPresent)
         {
             maskParameters.VectorMaskFeather = ctx.Reader.ReadDouble();
+        }
+
+        if (maskDataLength == 20)
+        {
+            //padding, only present if size = 20
+            ctx.Reader.Skip(2);
         }
 
         layer.LayerMaskData = new LayerMaskData(flags, parametersFlags, maskParameters)

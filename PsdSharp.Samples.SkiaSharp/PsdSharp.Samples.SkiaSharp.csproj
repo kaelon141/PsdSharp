@@ -26,6 +26,62 @@
       <EmbeddedResource Include="Assets\test.psd">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
+      <None Remove="Assets\4x4_1bit_bitmap.psd" />
+      <EmbeddedResource Include="Assets\4x4_1bit_bitmap.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_16bit_grayscale.psd" />
+      <EmbeddedResource Include="Assets\4x4_16bit_grayscale.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_32bit_grayscale.psd" />
+      <EmbeddedResource Include="Assets\4x4_32bit_grayscale.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_8bit_grayscale.psd" />
+      <EmbeddedResource Include="Assets\4x4_8bit_grayscale.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_8bit_rgb.psd" />
+      <EmbeddedResource Include="Assets\4x4_8bit_rgb.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_16bit_rgb.psd" />
+      <EmbeddedResource Include="Assets\4x4_16bit_rgb.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_32bit_rgb.psd" />
+      <EmbeddedResource Include="Assets\4x4_32bit_rgb.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_8bit_index_color.psd" />
+      <EmbeddedResource Include="Assets\4x4_8bit_index_color.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_16bit_cmyk.psd" />
+      <EmbeddedResource Include="Assets\4x4_16bit_cmyk.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_8bit_cmyk.psd" />
+      <EmbeddedResource Include="Assets\4x4_8bit_cmyk.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_8bit_duotone.psd" />
+      <EmbeddedResource Include="Assets\4x4_8bit_duotone.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_16bit_multichannel.psd" />
+      <EmbeddedResource Include="Assets\4x4_16bit_multichannel.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_8bit_lab.psd" />
+      <EmbeddedResource Include="Assets\4x4_8bit_lab.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
+      <None Remove="Assets\4x4_16bit_lab.psd" />
+      <EmbeddedResource Include="Assets\4x4_16bit_lab.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
 </Project>

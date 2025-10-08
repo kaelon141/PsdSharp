@@ -4,9 +4,9 @@ namespace PsdSharp.Images;
 
 internal class PerChannelImageData : ImageData
 {
+    private readonly PsdHeader _psdHeader;
+    
     private readonly Rectangle _bounds;
-    private readonly ColorMode _colorMode;
-    private readonly byte _channelDepth;
     
     private readonly (short ChannelId, long DataLength)[] _channels;
 
@@ -15,15 +15,16 @@ internal class PerChannelImageData : ImageData
     private readonly List<ChannelData> _loadedChannels = new();
     private readonly bool _isPsb;
 
-    public PerChannelImageData(ParseContext ctx, Rectangle bounds, ColorMode colorMode, byte channelDepth, (short ChannelId, long DataLength)[] channels) : base(ctx.PsdLoadOptions.ImageDataLoading)
+    public PerChannelImageData(ParseContext ctx, PsdHeader header, Rectangle bounds, (short ChannelId, long DataLength)[] channels) : base(ctx.PsdLoadOptions.ImageDataLoading)
     {
         _bounds = bounds;
-        _colorMode = colorMode;
-        _channelDepth = channelDepth;
+        _psdHeader = header;
         _channels = channels;
         _isPsb = ctx.Traits.PsdFileType == PsdFileType.Psb;
 
-        var dataLength = _channels.Aggregate(0L, (acc, info) => acc + info.DataLength);
+        var dataLength = _channels
+            .Aggregate(0L, (acc, info) => acc + info.DataLength);
+        if (dataLength == 0) return;
         
         if (ImageDataLoading == ImageDataLoading.Skip)
         {
@@ -47,11 +48,13 @@ internal class PerChannelImageData : ImageData
         }
     }
     
+    public override ushort NumberOfChannels => (ushort)_channels.Length;
+    
     public override IEnumerable<ChannelData> GetChannels()
     {
         if (_loadedChannels.Count > 0)
         {
-            foreach (var channel in _loadedChannels)
+            foreach (var channel in _loadedChannels.Where(x => x.ChannelId >= 0))
                 yield return channel;
             yield break;
         }
@@ -70,13 +73,19 @@ internal class PerChannelImageData : ImageData
             var buffer = new byte[channelInfo.DataLength - 2];
             reader.ReadIntoBuffer(buffer);
 
-            var channelData = new ChannelData(channelInfo.ChannelId, compression, _bounds, _channelDepth, buffer, _isPsb);
+            var channelData = new ChannelData(channelInfo.ChannelId, compression, _bounds, _psdHeader.ChannelDepth, buffer, _isPsb);
             _loadedChannels.Add(channelData);
+
+            if (channelData.ChannelId < 0)
+                continue;
+            
             yield return channelData;
         }
     }
 
     public override uint Width => _bounds.Width;
     public override uint Height => _bounds.Height;
-    public override ColorMode ColorMode => _colorMode;
+    public override ColorMode ColorMode => _psdHeader.ColorMode;
+    public override byte[] ColorModeData => _psdHeader.ColorModeData;
+    public override ushort ChannelDepth => _psdHeader.ChannelDepth;
 }

@@ -12,15 +12,17 @@ public abstract class ImageData
         ImageDataLoading = imageDataLoading;
     }
 
+    public abstract ushort NumberOfChannels { get; }
     public abstract IEnumerable<ChannelData> GetChannels();
-
     public abstract uint Width { get; }
     public abstract uint Height { get; }
     public abstract ColorMode ColorMode { get; }
+    public abstract byte[] ColorModeData { get; }
+    public abstract ushort ChannelDepth { get; }
 
     public class ChannelData
     {
-        private short _channelId;
+        public short ChannelId;
         private readonly ImageCompression _imageCompression;
         private readonly Rectangle _bounds;
         private readonly byte _channelDepth;
@@ -34,7 +36,7 @@ public abstract class ImageData
             byte[] data,
             bool isPsb)
         {
-            _channelId = channelId;
+            ChannelId = channelId;
             _imageCompression = imageCompression;
             _bounds = bounds;
             _channelDepth = channelDepth;

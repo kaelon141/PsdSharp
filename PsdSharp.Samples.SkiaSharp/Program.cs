@@ -17,8 +17,9 @@ public class Program
     
     public static void Main(string[] args)
     {
-        var psdFile = Assembly.GetExecutingAssembly().GetManifestResourceStream("PsdSharp.Samples.SkiaSharp.Assets.test.psd");
-        _psdFileBitmap = PsdFile.Open(psdFile!).ImageData!.ToSkBitmap();
+        var psdFile = Assembly.GetExecutingAssembly().GetManifestResourceStream("PsdSharp.Samples.SkiaSharp.Assets.4x4_16bit_lab.psd");
+        var psd = PsdFile.Open(psdFile!);
+        _psdFileBitmap = psd.ImageData!.ToSkBitmap();
         
         var windowOptions = WindowOptions.Default with
         {

@@ -40,6 +40,8 @@ internal class CompositeImageData : ImageData
         }
     }
 
+    public override ushort NumberOfChannels => _header.NumberOfChannels;
+
     public override IEnumerable<ChannelData> GetChannels()
     {
         if (_loadedChannels.Count > 0)
@@ -80,6 +82,8 @@ internal class CompositeImageData : ImageData
     public override uint Width => _header.WidthInPixels;
     public override uint Height => _header.HeightInPixels;
     public override ColorMode ColorMode => _header.ColorMode;
+    public override byte[] ColorModeData => _header.ColorModeData;
+    public override ushort ChannelDepth => _header.ChannelDepth;
 
     private byte[] StreamToByteArray(Stream stream)
     {

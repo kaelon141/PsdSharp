@@ -11,7 +11,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d2cdf-0308-4e4b-b548-ab6fb8121c3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/ColorType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/BitmapPlanarToRgbInterleavedConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/GreyscalePlanarToRgbInterleavedConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/IndexedPalleteToRgbInterleavedConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/LabPlanarToRgbInterleavedConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/PixelDataConverter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/RgbInterleaver.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.SkiaSharp/ImageDataExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/ImageDataExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Tests/Parsing/ColorModeParserTests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Images/ImageData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Images/ImageData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Images/PerChannelImageData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Images/PerChannelImageData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/ColorModeDataParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/ColorModeDataParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/HeaderParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/LayerAndMaskInformationParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdHeader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdHeader.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +45,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/05/cd90df80/GRGlInterface.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/11/52666863/SKColor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/28/ecfff85b/SKSurface.cs" root0="FORCE_HIGHLIGHTING" />
@@ -33,16 +70,26 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/72/1c224e17/SKObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/96/dfafcf1b/SkiaApi.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/a4/46de3cd0/SKAlphaType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8ebec59be2d4f9db1924aab409e04f69d400/16/028b8372/SegmentedArrayBuilder`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/11c81f7d647ca2284fbbdd3742a75c867d8c44a98e18c3b08dfd485cd5ce/StringAsserts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/136629feec4e9f61c24ac3f6c4c19204b6dfde7d97865c8b45e894bdcffc2ce/Definitions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1c3f7d5c03bf77051eb8a758fb3549c4e2d4cb3dc6f6d567a94a315044961e/List.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26a97b4ff6b692cbd94efc680c5f4f7b486209b515228996f89157d155e/ExceptionAsserts.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4743f513c7ddc8411223a46f0ca426ed929391acebcff993721dff2f0c6b34/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6728f66657329080f0f419df519283a455cdca7d2617a05b18553b02da52fa/Nullable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/949411c1528b748e56c47226bc44c31ecbfe3f46d933469386f6a84765cd1/Grid.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/98ecf4ebd1d9a35e95cb73d6be798c135d5783d7e5ace5ac3b778bf15fed1a/Span.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9cfc923b6c76e597f2479273c2ad90a58195cf0c69a139781d03a6d72aaffc3/WindowExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9edcd28baffe1339ed6f7b74ffe95d47cba0bb2059eb943e48f5c1638c74bd3b/Record.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a1c515878d63f9a569da569abadba913d55492a49e86a7111b587632b6f78f1/RawImage.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b64bb1d30d558e7ebb1dee5119823f261371780d4a920249d2c664d822f8b79/GLEnum.gen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d37356fea9ed307068a31dc8ca3e5c5723187a9f164d0d76fc81bbf46f5/ThrowHelpers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7bc48c79f70bd7a187cf86258b2815e2deb22274953837f735bbfe18f6c69e2/MemoryExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d990486e21ecc217f9ef249898e8b493344a59df367b7bb2094142a6a148db9/WindowOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e17e3d40cbccf4423b5f15674689f696d72ba2d300196ab24ae93e238f87/Memory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e414b1dc488d6da566b0175c5a49dc48f0ea10c0661bed62352395375ebe80ac/EqualityAsserts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecdc14a73bdd3aa6ef3a23cbbfbe2c20cc5af3cdb1242ca466013bbd143ec76/Assembly.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.AvaloniaControls/PsdView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,20 +99,26 @@
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.WinForms/MainForm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.SkiaSharp/ImageDataExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ColorModeParserTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/HeaderParserTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageDataTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageResourcesParserTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PsdSharp.WPF/ImageDataExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PsdSharp.Win32/ImageDataExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.WPF/ImageDataExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.Win32/ImageDataExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Compression/Compression.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Compression/Rle.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/GlobalLayerMaskInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/ImageResource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/BufferedSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/ColorType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/CompositeImageData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/BitmapPlanarToRgbInterleavedConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/GreyscalePlanarToRgbInterleavedConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/IndexedPalleteToRgbInterleavedConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/LabPlanarToRgbInterleavedConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/PixelDataConverter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/RgbInterleaver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/ImageData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/ImageDataSource.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Images/PerChannelImageData.cs" root0="FORCE_HIGHLIGHTING" />
@@ -122,7 +175,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.PsdSharp.Samples.Avalonia">
+  <component name="RunManager" selected=".NET Project.PsdSharp.Samples.SkiaSharp">
     <configuration name="PsdSharp.Samples.Avalonia" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/PsdSharp.Samples.Avalonia/bin/Debug/net9.0/PsdSharp.Samples.Avalonia.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -278,6 +331,8 @@
       <workItem from="1759448832927" duration="5371000" />
       <workItem from="1759457064655" duration="4700000" />
       <workItem from="1759462643730" duration="92000" />
+      <workItem from="1759522842807" duration="1269000" />
+      <workItem from="1759863134975" duration="25569000" />
     </task>
     <servers />
   </component>
@@ -377,8 +432,39 @@
           <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/05/cd90df80/GRGlInterface.cs" containingFunctionPresentation="Method 'CreateAngle'" />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/GreyscalePlanarToRgbInterleavedConverter.cs</url>
+          <line>8</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/GreyscalePlanarToRgbInterleavedConverter.cs" containingFunctionPresentation="Method 'Convert'">
+            <startOffsets>
+              <option value="238" />
+            </startOffsets>
+            <endOffsets>
+              <option value="297" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp/Images/DataConversion/IndexedPalleteToRgbInterleavedConverter.cs</url>
+          <line>6</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp/Images/DataConversion/IndexedPalleteToRgbInterleavedConverter.cs" containingFunctionPresentation="Method 'Convert'">
+            <startOffsets>
+              <option value="207" />
+            </startOffsets>
+            <endOffsets>
+              <option value="248" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="DotNetProject">
+        <watch expression="ctx" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

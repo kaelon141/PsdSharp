@@ -41,6 +41,7 @@ internal static class HeaderParser
             WidthInPixels = widthPx,
             ChannelDepth = checked((byte)depth),
             ColorMode = (ColorMode) colorMode,
+            ColorModeData = ColorModeDataParser.Parse(ctx)
         };
     }
 }
