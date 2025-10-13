@@ -7,7 +7,7 @@ internal class ParseContext
     public BigEndianReader Reader { get; }
     public FormatTraits Traits { get; private set; }
     public PsdLoadOptions PsdLoadOptions { get; }
-    public Encoding StringEncoding => PsdLoadOptions.StringEncoding;
+    public Encoding StringEncoding => PsdLoadOptions.StringEncoding!;
     public ColorMode ColorMode { get; private set; } = ColorMode.Rgb;
 
     public ParseContext(BigEndianReader reader, PsdLoadOptions psdLoadOptions)

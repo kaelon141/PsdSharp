@@ -26,7 +26,7 @@ internal static class RgbInterleaver
         var destinationChannels = desiredColorType.Channels;
 
         var chunkSize = 50_000;
-        Parallel.For(0, (pixelCount + chunkSize - 1) / chunkSize, chunk =>
+        Parallel.For((int)0, (pixelCount + chunkSize - 1) / chunkSize, chunk =>
         {
             var start = chunk * chunkSize;
             var end = Math.Min(start + chunkSize, pixelCount);
@@ -50,8 +50,12 @@ internal static class RgbInterleaver
                     {
                         1 => channel[srcOffset],
                         2 => (byte)(BinaryPrimitives.ReadUInt16BigEndian(channel.AsSpan(srcOffset, 2)) >> 8),
+                        #if NET6_0_OR_GREATER
                         _ => (byte)(Math.Clamp(BinaryPrimitives.ReadSingleBigEndian(channel.AsSpan(srcOffset, 4)), 0,
                             1) * 255)
+                        #else
+                        _ => (byte)(Compat.MathCompat.Clamp(Compat.BinaryPrimitivesCompat.ReadSingleBigEndian(channel.AsSpan(srcOffset, 4)), 0, 1) * 255)
+                        #endif
                     };
                 }
             }

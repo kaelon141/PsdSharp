@@ -17,12 +17,12 @@ internal static class LabPlanarToRgbInterleavedConverter
         var bSrc = To8Bit(channels[2].GetData(), bytesPerSample, pixelCount);
         
         const int chunkSize = 50_000;
-         Parallel.For(0, (pixelCount + chunkSize - 1) / chunkSize, chunk =>
+         Parallel.For(0L, (pixelCount + chunkSize - 1) / chunkSize, chunk =>
         {
             var start = chunk * chunkSize;
             var end = Math.Min(start + chunkSize, pixelCount);
 
-            for (int i = start, dst = start * 4; i < end; i++, dst += 4)
+            for (long i = start, dst = start * 4; i < end; i++, dst += 4)
             {
                 // --- 1. Decode Lab bytes to floats ---
                 var l = (lSrc[i] / 255f) * 100f;
@@ -87,7 +87,11 @@ internal static class LabPlanarToRgbInterleavedConverter
             case 4:
                 for (int i = 0, s = 0; i < pixelCount; i++, s += 4)
                 {
+                    #if NET6_0_OR_GREATER
                     var f = BinaryPrimitives.ReadSingleBigEndian(src.AsSpan(s, 4));
+                    #else
+                    var f = Compat.BinaryPrimitivesCompat.ReadSingleBigEndian(src.AsSpan(s, 4));
+                    #endif
                     if (f < 0f) f = 0f;
                     else if (f > 1f) f = 1f;
                     dst[i] = (byte)(f * 255f + 0.5f);

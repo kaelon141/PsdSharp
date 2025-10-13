@@ -103,6 +103,6 @@ public static class ImageResourceIdExtensions
 
     public static bool IsValidResourceId(this ImageResourceId imageResourceId)
     {
-        return Enum.IsDefined(imageResourceId) || IsPathRecord(imageResourceId) || IsPluginResource(imageResourceId);
+        return Enum.IsDefined(typeof(ImageResourceId), imageResourceId) || IsPathRecord(imageResourceId) || IsPluginResource(imageResourceId);
     }
 }

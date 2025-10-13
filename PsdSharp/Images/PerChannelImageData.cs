@@ -68,7 +68,7 @@ internal class PerChannelImageData : ImageData
         foreach (var channelInfo in _channels)
         {
             var compression = (ImageCompression)reader.ReadUInt16();
-            if (!Enum.IsDefined(compression)) throw ParserUtils.DataCorrupt();
+            if (!Enum.IsDefined(typeof(ImageCompression), compression)) throw ParserUtils.DataCorrupt();
             
             var buffer = new byte[channelInfo.DataLength - 2];
             reader.ReadIntoBuffer(buffer);

@@ -16,8 +16,7 @@ internal static class Compression
                 break;
             case ImageCompression.ZipWithoutPrediction or ImageCompression.ZipWithPrediction:
             {
-                using var deflate = new ZLibStream(stream, CompressionMode.Decompress, leaveOpen: true);
-                deflate.CopyTo(decompressStream);
+                ZLibHelper.Decompress(stream, decompressStream);
                 break;
             }
         }

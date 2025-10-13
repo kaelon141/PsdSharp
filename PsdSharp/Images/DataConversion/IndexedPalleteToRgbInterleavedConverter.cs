@@ -4,9 +4,9 @@ internal static class IndexedPalleteToRgbInterleavedConverter
 {
     public static byte[] Convert(ImageData imageData, ColorType destinationColorType)
     {
-        var red = imageData.ColorModeData[..256];
-        var green = imageData.ColorModeData[256..512];
-        var blue = imageData.ColorModeData[512..768];
+        var red = imageData.ColorModeData.AsSpan(0, 256).ToArray();
+        var green = imageData.ColorModeData.AsSpan(256, 256).ToArray();
+        var blue = imageData.ColorModeData.AsSpan(512, 256).ToArray();
         
         var sourceData = imageData.GetChannels().First().GetData();
         

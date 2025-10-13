@@ -69,5 +69,4 @@ public class ResolutionInfo : ImageResource
     /// The unit in which the image height should be displayed to the user.
     /// </summary>
     public SizeDisplayUnit HeightDisplayUnit { get; set; }
-
 }

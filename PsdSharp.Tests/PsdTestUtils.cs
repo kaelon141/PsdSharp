@@ -52,7 +52,7 @@ internal static class PsdTestUtils
 
     public static byte[] Pascal(string s, byte alignment = 2, Encoding? enc = null)
     {
-        enc ??= Encoding.Latin1;
+        enc ??= EncodingProvider.Latin1;
         var str = enc.GetBytes(s);
         if (str.Length > 255) throw new ArgumentOutOfRangeException(nameof(s), "Pascal string max length is 255");
 

@@ -29,7 +29,11 @@ internal static class GreyscalePlanarToRgbInterleavedConverter
                 {
                     1 => sourceData[srcOffset],
                     2 => (byte)(BinaryPrimitives.ReadUInt16BigEndian(sourceData.AsSpan(srcOffset, 2)) >> 8),
+                    #if NET6_0_OR_GREATER
                     _ => (byte)(Math.Clamp(BinaryPrimitives.ReadSingleBigEndian(sourceData.AsSpan(srcOffset, 4)), 0, 1) * 255)
+                    #else
+                    _ => (byte)(Compat.MathCompat.Clamp(Compat.BinaryPrimitivesCompat.ReadSingleBigEndian(sourceData.AsSpan(srcOffset, 4)), 0, 1) * 255)
+                    #endif
                 };
 
                 for (var j = 0; j < destinationChannels.Length; j++)

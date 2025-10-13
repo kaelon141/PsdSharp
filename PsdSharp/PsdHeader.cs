@@ -2,11 +2,11 @@ namespace PsdSharp;
 
 public class PsdHeader
 {
-    public required PsdFileType PsdFileType { get; init; }
-    public required ushort NumberOfChannels { get; init; }
-    public required uint HeightInPixels { get; init; }
-    public required uint WidthInPixels { get; init; }
-    public required byte ChannelDepth { get; init; }
-    public required ColorMode ColorMode { get; init; }
+    public PsdFileType PsdFileType { get; set; }
+    public ushort NumberOfChannels { get; set; }
+    public uint HeightInPixels { get; set; }
+    public uint WidthInPixels { get; set; }
+    public byte ChannelDepth { get; set; }
+    public ColorMode ColorMode { get; set; }
     public byte[] ColorModeData { get; internal set; } = [];
 }

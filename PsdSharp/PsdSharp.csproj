@@ -2,8 +2,7 @@
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>12</LangVersion>
       
     <IsPackable>true</IsPackable>
     <PackageId>PsdSharp</PackageId>
@@ -16,7 +15,14 @@
     <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl>https://raw.githubusercontent.com/kaelon141/PsdSharp/refs/heads/main/logo.png</PackageIconUrl>
     <PackageTags>photoshop psd psb adobe</PackageTags>
+    <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
   </PropertyGroup>
+    
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.9" />
+    <PackageReference Include="Microsoft.Bcl.Numerics" Version="9.0.9" />
+    <PackageReference Include="Iconic.Zlib.Netstandard" Version="1.0.0" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="\" />

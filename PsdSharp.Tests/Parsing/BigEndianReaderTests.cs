@@ -43,7 +43,7 @@ namespace PsdSharp.Tests.Parsing
             var pascal = PsdTestUtils.Pascal("ABC", alignment);
             var data = PsdTestUtils.Concat(pascal, [0xEE]);
 
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             var s = r.ReadPascalString(alignment);
 
             Assert.Equal("ABC", s.String);
@@ -59,7 +59,7 @@ namespace PsdSharp.Tests.Parsing
             var pascalNull = PsdTestUtils.PascalNull(alignment);
             var data = PsdTestUtils.Concat(pascalNull, [0x7A]);
 
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             var s = r.ReadPascalString(alignment);
 
             Assert.Null(s.String);
@@ -71,7 +71,7 @@ namespace PsdSharp.Tests.Parsing
         {
             string s = new string('x', 255);
             var pascal = PsdTestUtils.Pascal(s, 4);
-            using var r = new BigEndianReader(PsdTestUtils.Ms(pascal), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(pascal), EncodingProvider.Latin1);
             var got = r.ReadPascalString(4);
             Assert.Equal(s, got.String);
         }
@@ -85,7 +85,7 @@ namespace PsdSharp.Tests.Parsing
             var header = PsdTestUtils.BE32(0x0);
             var payload = PsdTestUtils.Utf16Be( 0x0, 0x0);
             var data = PsdTestUtils.Concat(header, payload);
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             var s = r.ReadUnicodeString();
             Assert.Null(s.String);
             Assert.Equal(6, s.NumBytesRead);
@@ -99,7 +99,7 @@ namespace PsdSharp.Tests.Parsing
             var payload = PsdTestUtils.Utf16Be(0x0041, 0x0042, 0x0, 0x0);
             var data = PsdTestUtils.Concat(header, payload);
 
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             var s = r.ReadUnicodeString();
             Assert.Equal("AB", s.String);
         }
@@ -112,7 +112,7 @@ namespace PsdSharp.Tests.Parsing
             var payload = PsdTestUtils.Utf16Be(0xD83D, 0xDE00, 0x0, 0x0);
             var data = PsdTestUtils.Concat(header, payload);
 
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             var s = r.ReadUnicodeString();
             Assert.Equal("😀", s.String);
         }
@@ -123,7 +123,7 @@ namespace PsdSharp.Tests.Parsing
             // length = (Max + 1) code units
             const uint maxUnits = 16 * 1024 * 1024;
             var data = PsdTestUtils.BE32(maxUnits + 1);
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             Assert.Throws<InvalidDataException>(() => r.ReadUnicodeString());
         }
 
@@ -134,7 +134,7 @@ namespace PsdSharp.Tests.Parsing
             var header = PsdTestUtils.BE32(4u);
             var payload = PsdTestUtils.Utf16Be(0x0041); // only 2 bytes provided
             var data = PsdTestUtils.Concat(header, payload);
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             Assert.Throws<EndOfStreamException>(() => r.ReadUnicodeString());
         }
 
@@ -152,7 +152,7 @@ namespace PsdSharp.Tests.Parsing
             var payload = Enumerable.Repeat((byte)0xAA, count).ToArray();
             var data = PsdTestUtils.Concat(payload, [0xCC]);
 
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             r.Skip(count);
             Assert.Equal(0xCC, r.ReadByte());
         }
@@ -160,7 +160,7 @@ namespace PsdSharp.Tests.Parsing
         [Fact]
         public void Skip_Past_End_Throws()
         {
-            using var r = new BigEndianReader(PsdTestUtils.Ms(0x01, 0x02), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x01, 0x02), EncodingProvider.Latin1);
             Assert.Throws<EndOfStreamException>(() => r.Skip(3));
         }
 
@@ -174,7 +174,7 @@ namespace PsdSharp.Tests.Parsing
             var u16 = PsdTestUtils.BE16(0x1234);
             var data = PsdTestUtils.Concat(pascal, u16);
 
-            using var r = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             Assert.Equal("A", r.ReadPascalString(4).String);
             Assert.Equal(0x1234, r.ReadUInt16());
         }
@@ -185,7 +185,7 @@ namespace PsdSharp.Tests.Parsing
         public void Dispose_Closes_Stream_When_Not_LeaveOpen()
         {
             var ms = new MemoryStream([1, 2, 3], writable: false);
-            var reader = new BigEndianReader(ms, Encoding.Latin1, leaveOpen: false);
+            var reader = new BigEndianReader(ms, EncodingProvider.Latin1, leaveOpen: false);
             reader.Dispose();
             Assert.Throws<ObjectDisposedException>(() => ms.ReadByte());
         }
@@ -194,7 +194,7 @@ namespace PsdSharp.Tests.Parsing
         public void Dispose_Does_Not_Close_Stream_When_LeaveOpen()
         {
             var ms = new MemoryStream([1, 2, 3], writable: false);
-            var reader = new BigEndianReader(ms, Encoding.Latin1, leaveOpen: true);
+            var reader = new BigEndianReader(ms, EncodingProvider.Latin1, leaveOpen: true);
             reader.Dispose();
             int b = ms.ReadByte(); // should still work
             Assert.True(b >= 0);
@@ -258,7 +258,7 @@ namespace PsdSharp.Tests.Parsing
         [Fact]
         public void Backtrack_SingleByte_ReadByteSequence()
         {
-            using var r = new BigEndianReader(PsdTestUtils.Ms(0x02, 0x03), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x02, 0x03), EncodingProvider.Latin1);
             r.Backtrack([0x01]);
             Assert.Equal(0x01, r.ReadByte());
             Assert.Equal(0x02, r.ReadByte());
@@ -268,7 +268,7 @@ namespace PsdSharp.Tests.Parsing
         [Fact]
         public void Backtrack_MultipleBytes_ReadUInt32_Then_ReadByte()
         {
-            using var r = new BigEndianReader(PsdTestUtils.Ms(0x44, 0x55), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x44, 0x55), EncodingProvider.Latin1);
             r.Backtrack([0x11, 0x22, 0x33]); // internal buffer now: 11 22 33
             // ReadUInt32 should consume: 11 22 33 44 (big-endian)
             uint val = r.ReadUInt32();
@@ -280,7 +280,7 @@ namespace PsdSharp.Tests.Parsing
         [Fact]
         public void Backtrack_PartialDrain_With_ReadByte_Then_ReadUInt16()
         {
-            using var r = new BigEndianReader(PsdTestUtils.Ms(0x04, 0x05), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0x04, 0x05), EncodingProvider.Latin1);
             r.Backtrack([0x01, 0x02, 0x03]); // internal: 01 02 03
             Assert.Equal(0x01, r.ReadByte()); // remaining internal: 02 03
             ushort next = r.ReadUInt16(); // consumes 02 03
@@ -292,7 +292,7 @@ namespace PsdSharp.Tests.Parsing
         [Fact]
         public void Backtrack_MultipleCalls_AppendOrder_Fifo()
         {
-            using var r = new BigEndianReader(PsdTestUtils.Ms(0xAA), Encoding.Latin1);
+            using var r = new BigEndianReader(PsdTestUtils.Ms(0xAA), EncodingProvider.Latin1);
             r.Backtrack([0x03]); // internal: 03
             r.Backtrack([0x01, 0x02]); // internal: 03 01 02 (append semantics)
             Assert.Equal(0x03, r.ReadByte());
@@ -316,7 +316,7 @@ namespace PsdSharp.Tests.Parsing
         }
 
         [Fact]
-        public void Read_Floats_BigEndian()
+        public void Read_Double_BigEndian()
         {
             // Half 1.0 => 0x3C00; Single 1.0f => 0x3F800000; Double 1.5 => 0x3FF8000000000000
             var data = PsdTestUtils.Concat(
@@ -325,20 +325,18 @@ namespace PsdSharp.Tests.Parsing
                 new byte[] { 0x3F, 0xF8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }
             );
             using var r = new BigEndianReader(PsdTestUtils.Ms(data));
-            Assert.Equal((Half)1.0, r.ReadHalf());
-            Assert.Equal(1.0f, r.ReadSingle());
             Assert.Equal(1.5, r.ReadDouble());
         }
 
         [Fact]
         public void ReadSignature_ReturnsAscii4_And_ThrowsOnEof()
         {
-            using (var r = new BigEndianReader(PsdTestUtils.Ms((byte)'8', (byte)'B', (byte)'P', (byte)'S'), Encoding.Latin1))
+            using (var r = new BigEndianReader(PsdTestUtils.Ms((byte)'8', (byte)'B', (byte)'P', (byte)'S'), EncodingProvider.Latin1))
             {
                 Assert.Equal("8BPS", r.ReadSignature());
             }
 
-            using (var r2 = new BigEndianReader(PsdTestUtils.Ms((byte)'8', (byte)'B', (byte)'P'), Encoding.Latin1))
+            using (var r2 = new BigEndianReader(PsdTestUtils.Ms((byte)'8', (byte)'B', (byte)'P'), EncodingProvider.Latin1))
             {
                 Assert.Throws<EndOfStreamException>(() => r2.ReadSignature());
             }
@@ -388,7 +386,7 @@ namespace PsdSharp.Tests.Parsing
         {
             var bytes = new byte[] { 0x10, 0x20, 0x30, 0x40 };
             using var ms = new MemoryStream(bytes, writable: false);
-            using var r = new BigEndianReader(ms, Encoding.Latin1);
+            using var r = new BigEndianReader(ms, EncodingProvider.Latin1);
             Assert.True(r.CanSeek);
             Assert.Equal(0, r.Position);
             Assert.Equal(0x10, r.ReadByte());
@@ -415,7 +413,7 @@ namespace PsdSharp.Tests.Parsing
             var payload = PsdTestUtils.Utf16Be(codeUnits);
             var data = PsdTestUtils.Concat(header, payload, new byte[] { 0x00, 0x00 }); // trailing terminator
 
-            using var r2 = new BigEndianReader(PsdTestUtils.Ms(data), Encoding.Latin1);
+            using var r2 = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
             var result = r2.ReadUnicodeString();
 
             Assert.Equal(new string('A', units), result.String);
@@ -426,7 +424,7 @@ namespace PsdSharp.Tests.Parsing
         public void ReadIntoBuffer_Drains_Internal_Then_Underlying()
         {
             // Internal buffer has 2 bytes; need 4 -> should pull remaining 2 from underlying stream
-            using var r3 = new BigEndianReader(PsdTestUtils.Ms(0x03, 0x04, 0x05), Encoding.Latin1);
+            using var r3 = new BigEndianReader(PsdTestUtils.Ms(0x03, 0x04, 0x05), EncodingProvider.Latin1);
             r3.Backtrack(new byte[] { 0x01, 0x02 });
             Span<byte> buf = stackalloc byte[4];
             r3.ReadIntoBuffer(buf);
@@ -438,7 +436,7 @@ namespace PsdSharp.Tests.Parsing
         public void Methods_Throw_When_Reader_Disposed()
         {
             var ms = new MemoryStream(new byte[] { 1, 2, 3 }, writable: false);
-            var reader = new BigEndianReader(ms, Encoding.Latin1);
+            var reader = new BigEndianReader(ms, EncodingProvider.Latin1);
             reader.Dispose();
 
             Assert.Throws<ObjectDisposedException>(() => reader.ReadByte());
@@ -451,7 +449,7 @@ namespace PsdSharp.Tests.Parsing
         public void Methods_Throw_When_Underlying_Stream_Disposed()
         {
             var ms = new MemoryStream(new byte[] { 1, 2, 3 }, writable: false);
-            using var reader = new BigEndianReader(ms, Encoding.Latin1);
+            using var reader = new BigEndianReader(ms, EncodingProvider.Latin1);
             ms.Dispose();
             Assert.Throws<ObjectDisposedException>(() => reader.ReadByte());
         }

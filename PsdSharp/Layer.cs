@@ -7,7 +7,7 @@ public class Layer
     internal LayerFlags Flags { get; set; } = new();
     
     public Rectangle Bounds { get; set; }
-    public required BlendModeKey BlendMode { get; set; }
+    public BlendModeKey BlendMode { get; set; } = null!;
     
     public byte Opacity { get; set; }
     public bool Clipping { get; set; }
@@ -43,7 +43,7 @@ public class Layer
 
 public class Channel
 {
-    private ushort ChannelId { get; init;  }
+    private ushort ChannelId { get; set;  }
     
 }
 
@@ -259,6 +259,6 @@ internal class MaskParameters
 
 public class TaggedBlock
 {
-    public required AdditionalLayerInfoKey Key { get; set; }
-    public required byte[] RawData { get; set; }
+    public AdditionalLayerInfoKey Key { get; set; } = null!;
+    public byte[] RawData { get; set; } = null!;
 }

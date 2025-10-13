@@ -1,3 +1,4 @@
+using System.Text;
 using PsdSharp.Images;
 using PsdSharp.Parsing;
 
@@ -25,7 +26,22 @@ public class PsdFile
     
     public static PsdFile Open(Stream stream, PsdLoadOptions? options = null)
     {
+        #if !NET6_0_OR_GREATER
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+        #endif
+        
         options ??= new PsdLoadOptions();
+
+        
+        if (options.StringEncoding is null)
+        {
+            #if !NET6_0_OR_GREATER
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                options.StringEncoding = Encoding.GetEncoding("ISO-8859-1");
+            #else
+                options.StringEncoding = Encoding.Latin1;
+            #endif
+        }
         
         var reader = new BigEndianReader(stream, options.StringEncoding, options.LeaveInputOpen);
         var parserContext = new ParseContext(reader, options);

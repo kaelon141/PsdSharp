@@ -8,11 +8,11 @@ public sealed class PsdLoadOptions
     /// Whether to leave the input stream open when the PSD file is disposed. Defaults to false.
     /// </summary>
     public bool LeaveInputOpen { get; set; } = true;
-    
+
     /// <summary>
     /// Which encoding to use when reading strings. Defaults to latin1 encoding. You should only change this when using a non-latin alphabet, like Traditional Chinese.
     /// </summary>
-    public Encoding StringEncoding { get; set; } = Encoding.Latin1;
+    public Encoding? StringEncoding { get; set; } = null;
     
     /// <summary>
     /// How to handle the loading of image data. Various options are available to give you control on whether to prioritise RAM usage or performance.

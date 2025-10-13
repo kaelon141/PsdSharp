@@ -26,7 +26,7 @@ public class VersionInfo : ImageResource
     {
     }
 
-    public required int Version { get; set; }
+    public int Version { get; set; }
     public bool HasRealMergedData { get; set; } = false;
     public string? WriterName { get; set; }
     public string? ReaderName { get; set; }
@@ -39,6 +39,11 @@ public class VersionInfo : ImageResource
 
         var byteCount = amountOfCodeUnits * UnicodeEncoding.CharSize;
         var bytes = data.Slice(4, byteCount);
+        
+        #if NET6_0_OR_GREATER
         return (Encoding.BigEndianUnicode.GetString(bytes), byteCount + 4);
+        #else
+        return (Encoding.BigEndianUnicode.GetString(bytes.ToArray()), byteCount + 4);
+        #endif
     } 
 }

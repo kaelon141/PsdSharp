@@ -1,3 +1,4 @@
+using System.Buffers;
 using System.Buffers.Binary;
 using System.Text;
 
@@ -9,7 +10,7 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
 
     private byte[] _internalBuffer = [];
     
-    public BigEndianReader(Stream input) : this(input, Encoding.Latin1) {}
+    public BigEndianReader(Stream input) : this(input, Encoding.GetEncoding("ISO-8859-1")) {}
     
     public Encoding Encoding => encoding;
 
@@ -52,8 +53,35 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         // Read any remaining bytes directly from the underlying stream.
         if (numBytesFromInternal < buffer.Length)
         {
-            input.ReadExactly(buffer[numBytesFromInternal..]);
-            _numBytesRead += numBytesFromInternal;
+            #if NET6_0_OR_GREATER
+                var span = buffer[numBytesFromInternal..];
+                var bytesRead = input.Read(span);
+
+                if (bytesRead < span.Length)
+                {
+                    throw new EndOfStreamException();
+                }
+
+                _numBytesRead += bytesRead;
+            #else
+                var numBytesRemaining = buffer.Length - numBytesFromInternal;
+                var rentedBuffer = ArrayPool<byte>.Shared.Rent(numBytesRemaining);
+                try
+                {
+                    var bytesRead = input.Read(rentedBuffer,0, rentedBuffer.Length);
+                    
+                    if (bytesRead < rentedBuffer.Length)
+                    {
+                        throw new EndOfStreamException();
+                    }
+                    
+                    rentedBuffer.AsSpan(0, bytesRead).CopyTo(rentedBuffer);
+                    _numBytesRead += bytesRead;
+                } finally
+                {
+                    ArrayPool<byte>.Shared.Return(rentedBuffer);
+                }
+            #endif
         }
 
         return buffer;
@@ -143,12 +171,12 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         => BinaryPrimitives.ReadInt64BigEndian(InternalRead(stackalloc byte[sizeof(long)]));
     public virtual ulong ReadUInt64()
         => BinaryPrimitives.ReadUInt64BigEndian(InternalRead(stackalloc byte[sizeof(ulong)]));
-    public virtual Half ReadHalf()
-        => BinaryPrimitives.ReadHalfBigEndian(InternalRead(stackalloc byte[sizeof(ushort)]));
-    public virtual float ReadSingle()
-        => BinaryPrimitives.ReadSingleBigEndian(InternalRead(stackalloc byte[sizeof(float)]));
     public virtual double ReadDouble()
+    #if NET6_0_OR_GREATER
         => BinaryPrimitives.ReadDoubleBigEndian(InternalRead(stackalloc byte[sizeof(double)]));
+    #else
+        => Compat.BinaryPrimitivesCompat.ReadDoubleBigEndian(InternalRead(stackalloc byte[sizeof(double)]));
+    #endif
 
     /// <summary>
     /// Read a Pascal string. Returns <c>null</c> if the length byte indicates 0 length
@@ -188,7 +216,11 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
             bytesConsumed += buf.Length;
         }
         
+        #if NET6_0_OR_GREATER
         return (encoding.GetString(buffer), unchecked((ushort)(bytesConsumed)));
+        #else
+        return (encoding.GetString(buffer.ToArray()), unchecked((ushort)(bytesConsumed)));
+        #endif
     }
 
     public virtual (string? String, long NumBytesRead) ReadUnicodeString()
@@ -215,33 +247,53 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
             Span<byte> buffer = stackalloc byte[byteCount];
             InternalRead(buffer);
             EnsureTerminationBytes(buffer);
-            return (Encoding.BigEndianUnicode.GetString(buffer[..^terminationByteCount]), 4 + buffer.Length);
+            
+            #if NET6_0_OR_GREATER
+                return (Encoding.BigEndianUnicode.GetString(buffer[..^terminationByteCount]), 4 + buffer.Length);
+            #else
+                return (Encoding.BigEndianUnicode.GetString(buffer.Slice(0, buffer.Length - terminationByteCount).ToArray()), 4 + buffer.Length);
+            #endif
         }
 
-        byte[] rentedBuffer = System.Buffers.ArrayPool<byte>.Shared.Rent(byteCount);
+        var rentedBuffer = ArrayPool<byte>.Shared.Rent(byteCount);
         try
         {
             var span = rentedBuffer.AsSpan(0, byteCount);
             InternalRead(span);
             EnsureTerminationBytes(span);
-            return (Encoding.BigEndianUnicode.GetString(span[..^terminationByteCount]), 4 + span.Length);
+            
+            #if NET6_0_OR_GREATER
+                return (Encoding.BigEndianUnicode.GetString(span[..^terminationByteCount]), 4 + span.Length);
+            #else
+                return (Encoding.BigEndianUnicode.GetString(span.Slice(0, span.Length - terminationByteCount).ToArray()), 4 + span.Length);
+            #endif
         }
         finally
         {
-            System.Buffers.ArrayPool<byte>.Shared.Return(rentedBuffer);
+            ArrayPool<byte>.Shared.Return(rentedBuffer);
         }
     }
 
     private void EnsureTerminationBytes(Span<byte> buffer)
     {
-        if (buffer[^1] != 0x0 || buffer[^2] != 0x0) throw ParserUtils.DataCorrupt();
+        #if NET6_0_OR_GREATER
+            if (buffer[^1] != 0x0 || buffer[^2] != 0x0) throw ParserUtils.DataCorrupt();
+        #else
+            var lastTwoBytes = buffer.Slice(buffer.Length - 2);
+            if(lastTwoBytes[0] != 0x0 || lastTwoBytes[1] != 0x0) throw ParserUtils.DataCorrupt();
+        #endif
     }
 
     public virtual string ReadSignature()
     {
         Span<byte> buffer = stackalloc byte[4];
         InternalRead(buffer);
-        return encoding.GetString(buffer);
+        
+        #if NET6_0_OR_GREATER
+            return encoding.GetString(buffer);
+        #else
+            return encoding.GetString(buffer.ToArray());
+        #endif
     }
 
     public virtual byte[] ReadUntilEnd()
@@ -249,8 +301,9 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         if (input.CanSeek)
         {
             var buffer = new byte[input.Length - input.Position];
-            input.ReadExactly(buffer);
-            return buffer;
+            var numBytesRead = input.Read(buffer, 0, buffer.Length);
+            
+            return numBytesRead < buffer.Length ? throw new EndOfStreamException() : buffer;
         }
         
         var ms = new MemoryStream();
@@ -302,7 +355,7 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
             return;
         }
         
-        var skipBuffer = System.Buffers.ArrayPool<byte>.Shared.Rent(8192);
+        var skipBuffer = ArrayPool<byte>.Shared.Rent(8192);
         try
         {
             while (numberOfBytes > 0)
@@ -314,7 +367,7 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         }
         finally
         {
-            System.Buffers.ArrayPool<byte>.Shared.Return(skipBuffer);
+            ArrayPool<byte>.Shared.Return(skipBuffer);
         }
     }
     
