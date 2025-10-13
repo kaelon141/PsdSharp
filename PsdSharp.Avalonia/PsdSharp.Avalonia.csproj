@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFrameworks>net6.0;net8.0;netstandard2.0</TargetFrameworks>
+        <LangVersion>12</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.Avalonia</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension package for PsdSharp that adds an Avalonia control for viewing PSD files.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -25,10 +26,7 @@
     
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="11.3.6" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(Configuration)' == 'Release'">
-        <PackageReference Include="PsdSharp.SkiaSharp" Version="1.0.1" />
+      <PackageReference Include="PsdSharp.SkiaSharp" Version="1.0.2" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <ProjectReference Include="..\PsdSharp.SkiaSharp\PsdSharp.SkiaSharp.csproj" />

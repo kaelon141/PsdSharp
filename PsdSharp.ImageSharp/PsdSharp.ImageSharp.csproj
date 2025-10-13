@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.ImageSharp</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension for PsdSharp to convert image data to an ImageSharp Image.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
-        <PackageReference Include="PsdSharp" Version="1.0.1" />
+        <PackageReference Include="PsdSharp" Version="1.0.2" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />

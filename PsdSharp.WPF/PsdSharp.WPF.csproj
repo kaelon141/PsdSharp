@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0-windows</TargetFramework>
+        <TargetFrameworks>net6.0-windows;net8.0-windows;netframework4.6.2</TargetFrameworks>
+        <LangVersion>12</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <UseWPF>true</UseWPF>
         <AssemblyName>PsdSharp.WPF</AssemblyName>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <UseWPF>true</UseWPF>
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.WPF</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension package for PsdSharp for converting Photoshop image data to a BitMapSource for rendering in WPF.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -26,19 +27,11 @@
         <None Include="../logo.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="System.Drawing.Common" Version="9.0.9" />
-    </ItemGroup>
-
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
-        <PackageReference Include="PsdSharp" Version="1.0.1" />
+        <PackageReference Include="PsdSharp" Version="1.0.2" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Reference Include="PresentationCore" Condition="'$(OS)' == 'Windows_NT'" />
     </ItemGroup>
 
 </Project>

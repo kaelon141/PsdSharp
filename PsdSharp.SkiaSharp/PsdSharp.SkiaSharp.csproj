@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>12</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.SkiaSharp</PackageId>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension for PsdSharp to convert image data to a SkiaSharp SkBitmap.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -28,7 +29,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
-        <PackageReference Include="PsdSharp" Version="1.0.1" />
+        <PackageReference Include="PsdSharp" Version="1.0.2" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
