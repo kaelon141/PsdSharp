@@ -320,8 +320,6 @@ namespace PsdSharp.Tests.Parsing
         {
             // Half 1.0 => 0x3C00; Single 1.0f => 0x3F800000; Double 1.5 => 0x3FF8000000000000
             var data = PsdTestUtils.Concat(
-                new byte[] { 0x3C, 0x00 },
-                new byte[] { 0x3F, 0x80, 0x00, 0x00 },
                 new byte[] { 0x3F, 0xF8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 }
             );
             using var r = new BigEndianReader(PsdTestUtils.Ms(data));

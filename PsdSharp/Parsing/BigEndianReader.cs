@@ -68,14 +68,14 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
                 var rentedBuffer = ArrayPool<byte>.Shared.Rent(numBytesRemaining);
                 try
                 {
-                    var bytesRead = input.Read(rentedBuffer,0, rentedBuffer.Length);
+                    var bytesRead = input.Read(rentedBuffer,0, numBytesRemaining);
                     
-                    if (bytesRead < rentedBuffer.Length)
+                    if (bytesRead < numBytesRemaining)
                     {
                         throw new EndOfStreamException();
                     }
                     
-                    rentedBuffer.AsSpan(0, bytesRead).CopyTo(rentedBuffer);
+                    rentedBuffer.AsSpan(0, bytesRead).CopyTo(buffer.Slice(numBytesFromInternal));
                     _numBytesRead += bytesRead;
                 } finally
                 {
