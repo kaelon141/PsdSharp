@@ -7,7 +7,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.ImageSharp</PackageId>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension for PsdSharp to convert image data to an ImageSharp Image.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
-        <PackageReference Include="PsdSharp" Version="1.0.2" />
+        <PackageReference Include="PsdSharp" Version="[1.0.3,)" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
