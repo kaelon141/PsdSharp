@@ -222,7 +222,7 @@ internal static class LayerAndMaskInformationParser
             var key = ctx.Reader.ReadSignature();
             var parsedKey = AdditionalLayerInfoKey.ByKey.TryGetValue(key, out var value)
                 ? value
-                : throw ParserUtils.DataCorrupt();
+                : new AdditionalLayerInfoKey(key, key, 4);
 
             var dataLength = ctx.Traits.PsdFileType == PsdFileType.Psd
                 ? ctx.Reader.ReadUInt32()

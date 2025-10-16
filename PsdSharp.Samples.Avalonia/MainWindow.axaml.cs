@@ -1,8 +1,5 @@
-using System.IO;
 using System.Reflection;
 using Avalonia.Controls;
-using PsdSharp.Parsing;
-using PsdSharp.SkiaSharp;
 
 namespace PsdSharp.Samples.Avalonia;
 
