@@ -11,7 +11,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.WPF</PackageId>
-        <Version>1.0.3</Version>
+        <Version>1.1.0</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension package for PsdSharp for converting Photoshop image data to a BitMapSource for rendering in WPF.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -28,7 +28,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' == 'Release'">
-        <PackageReference Include="PsdSharp" Version="[1.0.3,)" />
+        <PackageReference Include="PsdSharp" Version="[1.1.0,2.0.0)" />
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <ProjectReference Include="..\PsdSharp\PsdSharp.csproj" />
