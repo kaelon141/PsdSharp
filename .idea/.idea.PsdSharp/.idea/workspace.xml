@@ -12,13 +12,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d2cdf-0308-4e4b-b548-ab6fb8121c3d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Avalonia/ColorExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.ImageSharp/ColorExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/ColorExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.WPF/ColorExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp.Win32/ColorExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/PsdColor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PsdSharp/TaggedBlocks/LayerEffects.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Avalonia/PsdSharp.Avalonia.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Avalonia/PsdSharp.Avalonia.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp.ImageSharp/PsdSharp.ImageSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.ImageSharp/PsdSharp.ImageSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp.SkiaSharp/PsdSharp.SkiaSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/PsdSharp.SkiaSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp.WPF/PsdSharp.WPF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.WPF/PsdSharp.WPF.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp.Win32/PsdSharp.Win32.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Win32/PsdSharp.Win32.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/TaggedBlocks/TaggedBlocksRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/TaggedBlocks/TaggedBlocksRegistry.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +42,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/00be0fb588be459b8356ff9591cac0f722da0/96/78155da5/Span`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/02bfa03b73f94f5b8947ec21da8cdcba74518/33/2750a868/Span`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ab729f39b7a4c598fa644cfa103b2981a600/a1/de7563f2/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/05/cd90df80/GRGlInterface.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/11/52666863/SKColor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/28/ecfff85b/SKSurface.cs" root0="FORCE_HIGHLIGHTING" />
@@ -45,13 +56,19 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/a4/46de3cd0/SKAlphaType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c06df198e8e44ae6b48d6fc90310b210b508/82/37431d15/CollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8ebec59be2d4f9db1924aab409e04f69d400/16/028b8372/SegmentedArrayBuilder`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ea9be184c1734be281269821b2d1ca758d28/b7/802abd7c/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/11c81f7d647ca2284fbbdd3742a75c867d8c44a98e18c3b08dfd485cd5ce/StringAsserts.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/12c51e574e83846a79c06cf9e9ca6b934e6370afc9bbbc67c783106dc357c69/Rgba64.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/136629feec4e9f61c24ac3f6c4c19204b6dfde7d97865c8b45e894bdcffc2ce/Definitions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1c3f7d5c03bf77051eb8a758fb3549c4e2d4cb3dc6f6d567a94a315044961e/List.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26a97b4ff6b692cbd94efc680c5f4f7b486209b515228996f89157d155e/ExceptionAsserts.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2c8472bea94e766edbb59962ae4d7cacabdcdec4ecaa35e9d09eec7cd72f/Color.Conversions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/31b04811e28fc41e9d4ee5944655108343fe17699e78ebc85854a197ebd77873/SKColor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/36f611cf66fbf746251928d4ba2e611c46e955846ecd4be813db3c55cacba/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4743f513c7ddc8411223a46f0ca426ed929391acebcff993721dff2f0c6b34/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a8fb784972bca5f74669fc69e6471537bc24f9d75a8f1aa9032886da376cb/TestRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6728f66657329080f0f419df519283a455cdca7d2617a05b18553b02da52fa/Nullable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7e67932f6ba5519c62825561be88ee19e4e95dcbf15861d3102b329ec4b491/Color.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/949411c1528b748e56c47226bc44c31ecbfe3f46d933469386f6a84765cd1/Grid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/98ecf4ebd1d9a35e95cb73d6be798c135d5783d7e5ace5ac3b778bf15fed1a/Span.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9cfc923b6c76e597f2479273c2ad90a58195cf0c69a139781d03a6d72aaffc3/WindowExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -60,6 +77,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a3b28f92fcea47c0d762d91bd21e17593fdbf51f56ad1034aad532181cecb1/BinaryPrimitives.ReadBigEndian.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b64bb1d30d558e7ebb1dee5119823f261371780d4a920249d2c664d822f8b79/GLEnum.gen.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c9adad9bf2b7f9fc4420b995e891658b437630d9c06b2efbe3728817d1e7c54/Icon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d37356fea9ed307068a31dc8ca3e5c5723187a9f164d0d76fc81bbf46f5/ThrowHelpers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d6b757e154dd7f8c23e0e785431c97a76e4b9c6bdae38b978238421dbab55d/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d7bc48c79f70bd7a187cf86258b2815e2deb22274953837f735bbfe18f6c69e2/MemoryExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -68,13 +86,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e33542c1deafc57df01ed9a4cc3f329ac0ebb1ce21ea4cec6c17ae22ca5ab3/MemoryMarshal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e414b1dc488d6da566b0175c5a49dc48f0ea10c0661bed62352395375ebe80ac/EqualityAsserts.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecdc14a73bdd3aa6ef3a23cbbfbe2c20cc5af3cdb1242ca466013bbd143ec76/Assembly.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PsdSharp.Avalonia/obj/Debug/netstandard2.0/PsdSharp.Avalonia.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.WPF/MainWindow.xaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.WPF/MainWindow.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.WinForms/MainForm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.SkiaSharp/ColorExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.SkiaSharp/ImageDataExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/BigEndianReaderTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/HeaderParserTests.cs" root0="FORCE_HIGHLIGHTING" />
@@ -82,8 +100,8 @@
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/Parsing/ImageResourcesParserTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Tests/PsdTestUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.WPF/ImageDataExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.Win32/ColorExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Win32/ImageDataExtensions.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/PsdSharp.Win32/obj/Debug/netframework4.6.2/PsdSharp.Win32.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Compat/BinaryPrimitivesCompat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Compat/MathCompat.cs" root0="FORCE_HIGHLIGHTING" />
@@ -128,9 +146,11 @@
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/ParserUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/PsdLoadOptions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/PsdColor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/PsdFile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/PsdFileType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/PsdHeader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp/TaggedBlocks/LayerEffects.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/TaggedBlocks/ObjectsBasedEffectsLayerInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/TaggedBlocks/TaggedBlock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp/TaggedBlocks/TaggedBlocksCollection.cs" root0="FORCE_HIGHLIGHTING" />
@@ -166,7 +186,7 @@
     "e399969a-6f73-4484-8fe7-bb846257bf4e.executor": "Debug",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/kaelon/source/kitbasher/main",
+    "last_opened_file_path": "/home/kaelon/source/PsdSharp/main/PsdSharp/bin/Release/netstandard2.0/PsdSharp.dll",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -338,7 +358,7 @@
       <workItem from="1760380953738" duration="6823000" />
       <workItem from="1760585391891" duration="4534000" />
       <workItem from="1760814934194" duration="1045000" />
-      <workItem from="1760884997868" duration="10536000" />
+      <workItem from="1760884997868" duration="20387000" />
     </task>
     <servers />
   </component>

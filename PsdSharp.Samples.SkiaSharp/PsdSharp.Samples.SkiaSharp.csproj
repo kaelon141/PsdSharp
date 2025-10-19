@@ -84,4 +84,10 @@
       </EmbeddedResource>
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="PsdSharp">
+        <HintPath>..\PsdSharp\bin\Release\netstandard2.0\PsdSharp.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

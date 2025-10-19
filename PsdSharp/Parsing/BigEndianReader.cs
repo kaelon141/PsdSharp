@@ -171,6 +171,14 @@ internal class BigEndianReader(Stream input, Encoding encoding, bool leaveOpen =
         => BinaryPrimitives.ReadInt64BigEndian(InternalRead(stackalloc byte[sizeof(long)]));
     public virtual ulong ReadUInt64()
         => BinaryPrimitives.ReadUInt64BigEndian(InternalRead(stackalloc byte[sizeof(ulong)]));
+
+    public virtual float ReadSingle()
+    #if NET6_0_OR_GREATER
+        => BinaryPrimitives.ReadSingleBigEndian(InternalRead(stackalloc byte[sizeof(float)]));
+    #else
+        => Compat.BinaryPrimitivesCompat.ReadSingleBigEndian(InternalRead(stackalloc byte[sizeof(float)]));
+    #endif
+    
     public virtual double ReadDouble()
     #if NET6_0_OR_GREATER
         => BinaryPrimitives.ReadDoubleBigEndian(InternalRead(stackalloc byte[sizeof(double)]));

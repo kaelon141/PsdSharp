@@ -8,7 +8,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.Avalonia</PackageId>
-        <Version>1.1.0</Version>
+        <Version>1.1.1</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension package for PsdSharp that adds an Avalonia control for viewing PSD files.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -26,7 +26,9 @@
     
     <ItemGroup>
       <PackageReference Include="Avalonia" Version="11.3.6" />
-      <PackageReference Include="PsdSharp.SkiaSharp" Version="[1.1.0,2.0.0)" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)' == 'Release'">
+        <PackageReference Include="PsdSharp.SkiaSharp" Version="[1.1.1, 2.0.0)"/> 
     </ItemGroup>
     <ItemGroup Condition="'$(Configuration)' != 'Release'">
         <ProjectReference Include="..\PsdSharp.SkiaSharp\PsdSharp.SkiaSharp.csproj" />

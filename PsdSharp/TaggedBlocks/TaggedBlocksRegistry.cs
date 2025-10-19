@@ -13,6 +13,7 @@ internal static class TaggedBlocksRegistry
         { AdditionalLayerInfoKey.ColorLookup, typeof(ColorLookup) },
         { AdditionalLayerInfoKey.CompositorInfo, typeof(CompositorInfo) },
         { AdditionalLayerInfoKey.ContentGeneratorExtraData, typeof(ContentGeneratorExtraData) },
+        { AdditionalLayerInfoKey.EffectsLayer, typeof(EffectsLayer) },
         { AdditionalLayerInfoKey.Exposure, typeof(Exposure) },
         { AdditionalLayerInfoKey.FilterMask, typeof(FilterMask) },
         { AdditionalLayerInfoKey.LayerId, typeof(LayerId) },
