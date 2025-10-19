@@ -7,13 +7,13 @@ namespace PsdSharp.Tests.Parsing;
 public class HeaderParserTests
 {
    private static readonly byte[] PsdHeader =
-      EncodingProvider.Latin1.GetBytes("8BPS\x00\x01\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\x96\x00\x00\x00\xfa\x00\x08\x00\x03");
+      EncodingProvider.Latin1.GetBytes("8BPS\x00\x01\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\x96\x00\x00\x00\xfa\x00\x08\x00\x03\x00\x00\x00\x00");
    private static readonly byte[] PsdHeaderWithDimensionsTooLarge =
-      EncodingProvider.Latin1.GetBytes("8BPS\x00\x01\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\xc3\x50\x00\x00\xc3\x50\x00\x08\x00\x03");
+      EncodingProvider.Latin1.GetBytes("8BPS\x00\x01\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\xc3\x50\x00\x00\xc3\x50\x00\x08\x00\x03\x00\x00\x00\x00");
    private static readonly byte[] PsbHeader =
-      EncodingProvider.Latin1.GetBytes("8BPS\x00\x02\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\xc3\x50\x00\x00\xc3\x50\x00\x08\x00\x03");
+      EncodingProvider.Latin1.GetBytes("8BPS\x00\x02\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\xc3\x50\x00\x00\xc3\x50\x00\x08\x00\x03\x00\x00\x00\x00");
    private static readonly byte[] PsbHeaderWithDimensionsTooLarge =
-      EncodingProvider.Latin1.GetBytes("8BPS\x00\x02\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x06\xdd\xd0\x00\x00\x06\xdd\xd0\x00\x03");
+      EncodingProvider.Latin1.GetBytes("8BPS\x00\x02\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x06\xdd\xd0\x00\x00\x06\xdd\xd0\x00\x03\x00\x00\x00\x00");
 
    private ParseContext CreateParseContext(byte[] header)
    {
@@ -94,7 +94,7 @@ public class HeaderParserTests
    public void HeaderParser_Throws_If_ChannelDepth_Not_PowerOfTwo()
    {
       var buffer = PsdHeader;
-      PsdHeader[PsdHeader.Length - 3] = 0x06;
+      PsdHeader[PsdHeader.Length - 7] = 0x06;
       var stream = new MemoryStream(buffer);
       var reader = new BigEndianReader(stream);
       var parseContext = new ParseContext(reader, new PsdLoadOptions());
@@ -106,7 +106,7 @@ public class HeaderParserTests
    public void HeaderParser_Throws_If_ColorMode_Unknown()
    {
       var buffer = PsdHeader;
-      PsdHeader[PsdHeader.Length - 1] = 0x16;
+      PsdHeader[PsdHeader.Length - 5] = 0x16;
       var stream = new MemoryStream(buffer);
       var reader = new BigEndianReader(stream);
       var parseContext = new ParseContext(reader, new PsdLoadOptions());

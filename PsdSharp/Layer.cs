@@ -1,4 +1,5 @@
 using PsdSharp.Images;
+using PsdSharp.TaggedBlocks;
 
 namespace PsdSharp;
 
@@ -35,8 +36,8 @@ public class Layer
     public LayerBlendingRangesData? BlendingRangesData { get; set; }
 
     public string Name { get; set; } = string.Empty;
-    
-    public List<TaggedBlock> TaggedBlocks { get; set; } = [];
+
+    public TaggedBlocksCollection TaggedBlocks { get; set; } = new([]);
     
     public ImageData? ImageData { get; set; }
 }
@@ -255,10 +256,4 @@ internal class MaskParameters
     public double? UserMaskFeather { get; set; }
     public byte? VectorMaskDensity { get; set; }
     public double? VectorMaskFeather { get; set; }
-}
-
-public class TaggedBlock
-{
-    public AdditionalLayerInfoKey Key { get; set; } = null!;
-    public byte[] RawData { get; set; } = null!;
 }

@@ -1,6 +1,7 @@
 using System.Text;
 using PsdSharp.Images;
 using PsdSharp.Parsing;
+using PsdSharp.TaggedBlocks;
 
 namespace PsdSharp;
 
@@ -58,7 +59,7 @@ public class PsdFile
     
     public IReadOnlyCollection<Layer> Layers { get; internal set; } = [];
     public GlobalLayerMaskInfo? GlobalLayerMaskInfo { get; internal set; } = new();
+    public TaggedBlocksCollection? TaggedBlocks { get; internal set; } = new([]);
     public IReadOnlyCollection<ImageResource> ImageResources { get; internal set; } = [];
-    public IReadOnlyCollection<TaggedBlock> TaggedBlocks { get; internal set; } = [];
     public ImageData? ImageData { get; internal set; }
 }

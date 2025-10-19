@@ -29,6 +29,10 @@
       <EmbeddedResource Include="Assets\test.psd">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </EmbeddedResource>
+      <None Remove="Assets\Adidas1.psd" />
+      <EmbeddedResource Include="Assets\Adidas1.psd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>

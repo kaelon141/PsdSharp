@@ -9,7 +9,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
         
-        var psdStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("PsdSharp.Samples.Avalonia.Assets.test.psd");
+        var psdStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("PsdSharp.Samples.Avalonia.Assets.Adidas1.psd");
         PsdView.PsdFile = psdStream;
     }
 }

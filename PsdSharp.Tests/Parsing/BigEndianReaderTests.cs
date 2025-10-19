@@ -72,7 +72,7 @@ namespace PsdSharp.Tests.Parsing
             string s = new string('x', 255);
             var pascal = PsdTestUtils.Pascal(s, 4);
             using var r = new BigEndianReader(PsdTestUtils.Ms(pascal), EncodingProvider.Latin1);
-            var got = r.ReadPascalString(4);
+            var got = r.ReadPascalString(alignmentSize: 4);
             Assert.Equal(s, got.String);
         }
 
@@ -175,7 +175,7 @@ namespace PsdSharp.Tests.Parsing
             var data = PsdTestUtils.Concat(pascal, u16);
 
             using var r = new BigEndianReader(PsdTestUtils.Ms(data), EncodingProvider.Latin1);
-            Assert.Equal("A", r.ReadPascalString(4).String);
+            Assert.Equal("A", r.ReadPascalString(alignmentSize: 4).String);
             Assert.Equal(0x1234, r.ReadUInt16());
         }
 

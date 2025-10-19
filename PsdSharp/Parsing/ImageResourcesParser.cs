@@ -17,7 +17,7 @@ internal static class ImageResourcesParser
             if (signature != "8BIM") throw ParserUtils.DataCorrupt();
 
             var resourceId = (ImageResourceId)ctx.Reader.ReadUInt16();
-            var name = ctx.Reader.ReadPascalString();
+            var name = ctx.Reader.ReadPascalString(alignmentSize: 2);
             
             var resourceDataLength = ctx.Reader.ReadUInt32();
             if (resourceDataLength % 2 == 1)

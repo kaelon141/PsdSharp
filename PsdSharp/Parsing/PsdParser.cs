@@ -15,7 +15,7 @@ internal class PsdParser(ParseContext context)
             ImageResources = imageResources,
             Layers = layerAndMaskInfo.Layers.AsReadOnly(),
             GlobalLayerMaskInfo = layerAndMaskInfo.GlobalLayerMaskInfo,
-            TaggedBlocks = layerAndMaskInfo.TaggedBlocks.AsReadOnly(),
+            TaggedBlocks = layerAndMaskInfo.TaggedBlocks,
             ImageData = new CompositeImageData(context, header),
         };
     }

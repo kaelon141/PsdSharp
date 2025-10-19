@@ -1,5 +1,8 @@
+using System.Diagnostics;
+
 namespace PsdSharp;
 
+[DebuggerDisplay("{Key}")]
 public class AdditionalLayerInfoKey
 {
     public readonly string Key;
@@ -12,8 +15,27 @@ public class AdditionalLayerInfoKey
         Description = description;
         PsbLengthCountSizeBytes = psbLengthCountSizeBytes;
     }
-    
-    
+
+    public override bool Equals(object? obj)
+    {
+        return obj is AdditionalLayerInfoKey other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            return (Key.GetHashCode() * 397) ^ PsbLengthCountSizeBytes.GetHashCode();
+        }
+    }
+
+    public bool Equals(AdditionalLayerInfoKey other)
+    {
+        return Key == other.Key;
+    }
+
+    public override string ToString() => Key;
+
     public static readonly AdditionalLayerInfoKey Alpha = new("Alph", nameof(Alpha), 8);
     public static readonly AdditionalLayerInfoKey AnimationEffects = new("anFX", nameof(AnimationEffects), 4);
     public static readonly AdditionalLayerInfoKey Annotations = new("Anno", nameof(Annotations), 4);

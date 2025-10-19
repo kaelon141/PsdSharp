@@ -1,22 +1,22 @@
 using PsdSharp.Images;
+using PsdSharp.TaggedBlocks;
 
 namespace PsdSharp.Parsing;
 
 internal static class LayerAndMaskInformationParser
 {
-    public static (List<Layer> Layers, GlobalLayerMaskInfo GlobalLayerMaskInfo, List<TaggedBlock> TaggedBlocks) Parse(ParseContext ctx, PsdHeader header)
+    public static (List<Layer> Layers, GlobalLayerMaskInfo GlobalLayerMaskInfo, TaggedBlocksCollection TaggedBlocks) Parse(ParseContext ctx, PsdHeader header)
     {
         var sectionLength = ctx.Traits.ReadLenN();
 
         if (sectionLength == 0)
         {
-            return ([], new GlobalLayerMaskInfo(), []);
+            return ([], new GlobalLayerMaskInfo(), new TaggedBlocksCollection([]));
         }
         
         var layers = ParseLayerInfo(ctx, header);
         var globalLayerMaskInfo = ParseGlobalLayerMaskInfo(ctx);
-        var taggedBlocks = new List<TaggedBlock>();
-        ParseTaggedBlocks(ctx, taggedBlocks, padding: 4);
+        var taggedBlocks = ParseTaggedBlocks(ctx, padding: 4);
 
         return (layers, globalLayerMaskInfo, taggedBlocks);
     }
@@ -113,7 +113,8 @@ internal static class LayerAndMaskInformationParser
         ParseMaskData(ctx, ref layer);
         ParseBlendingRanges(ctx, ref layer);
         layer.Name = ctx.Reader.ReadPascalString(4).String!;
-        ParseTaggedBlocks(ctx, layer.TaggedBlocks);
+        
+        layer.TaggedBlocks = ParseTaggedBlocks(ctx);
     }
 
     private static void ParseMaskData(ParseContext ctx, ref Layer layer)
@@ -208,15 +209,17 @@ internal static class LayerAndMaskInformationParser
         layer.BlendingRangesData = blendingRangesData;
     }
 
-    private static void ParseTaggedBlocks(ParseContext ctx, List<TaggedBlock> taggedBlocks, byte padding = 1)
+    private static TaggedBlocksCollection ParseTaggedBlocks(ParseContext ctx, byte padding = 1)
     {
+        var taggedBlocks = new List<TaggedBlock>();
+        
         do
         {
             var signature = ctx.Reader.ReadSignature();
             if (signature != "8BIM" && signature != "8B64")
             {
                 ctx.Reader.Backtrack(ctx.StringEncoding.GetBytes(signature));
-                return;
+                return new TaggedBlocksCollection(taggedBlocks);
             }
 
             var key = ctx.Reader.ReadSignature();
@@ -239,11 +242,23 @@ internal static class LayerAndMaskInformationParser
                 ctx.Reader.Skip(unchecked((int)paddingLength));
             }
 
-            taggedBlocks.Add(new TaggedBlock
+            if (TaggedBlocksRegistry.TaggedBlockTypes.TryGetValue(parsedKey, out var taggedBlockType))
             {
-                Key = parsedKey,
-                RawData = data,
-            });
+                TaggedBlock? taggedBlock;
+                if (taggedBlockType.GetConstructor([typeof(AdditionalLayerInfoKey), typeof(byte[])]) is not null)
+                {
+                    taggedBlock = (TaggedBlock)Activator.CreateInstance(taggedBlockType, parsedKey, data)!;
+                }
+                else
+                {
+                    taggedBlock = (TaggedBlock)Activator.CreateInstance(taggedBlockType, data)!;
+                }
+
+                taggedBlocks.Add(taggedBlock);
+                continue;
+            }
+            
+            taggedBlocks.Add(new TaggedBlock(parsedKey, data));
         } while (true);
     }
 
