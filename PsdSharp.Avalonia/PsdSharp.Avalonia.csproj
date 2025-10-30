@@ -8,7 +8,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.Avalonia</PackageId>
-        <Version>1.1.1</Version>
+        <Version>1.2.0</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension package for PsdSharp that adds an Avalonia control for viewing PSD files.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

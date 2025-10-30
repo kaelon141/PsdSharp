@@ -10,7 +10,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.Win32</PackageId>
-        <Version>1.1.1</Version>
+        <Version>1.2.0</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension package for PsdSharp for converting Photoshop image data to a System.Drawing.Bitmap for rendering with GDI+ graphics libraries, WinForms etc.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

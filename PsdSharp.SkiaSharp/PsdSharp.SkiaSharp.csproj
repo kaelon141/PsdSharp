@@ -8,7 +8,7 @@
 
         <IsPackable>true</IsPackable>
         <PackageId>PsdSharp.SkiaSharp</PackageId>
-        <Version>1.1.1</Version>
+        <Version>1.2.0</Version>
         <Authors>Kaelon141</Authors>
         <Description>Extension for PsdSharp to convert image data to a SkiaSharp SkBitmap.</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>

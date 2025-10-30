@@ -6,7 +6,7 @@
       
     <IsPackable>true</IsPackable>
     <PackageId>PsdSharp</PackageId>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <Authors>Kaelon141</Authors>
     <Description>PsdSharp is a cross-platform .NET library for reading and rendering Photoshop PSD and PSB files, written entirely in managed C#.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

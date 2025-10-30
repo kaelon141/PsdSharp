@@ -12,22 +12,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="159d2cdf-0308-4e4b-b548-ab6fb8121c3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PsdSharp.Avalonia/ColorExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp.ImageSharp/ColorExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/ColorExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp.WPF/ColorExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp.Win32/ColorExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/PsdColor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PsdSharp/TaggedBlocks/LayerEffects.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PsdSharp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.ImageSharp/PsdSharp.ImageSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.ImageSharp/PsdSharp.ImageSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/PsdSharp.Samples.SkiaSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp.SkiaSharp/PsdSharp.SkiaSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.SkiaSharp/PsdSharp.SkiaSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.WPF/PsdSharp.WPF.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.WPF/PsdSharp.WPF.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp.Win32/PsdSharp.Win32.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp.Win32/PsdSharp.Win32.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/BigEndianReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Layer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Layer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdFile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/PsdSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PsdSharp/TaggedBlocks/TaggedBlocksRegistry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PsdSharp/TaggedBlocks/TaggedBlocksRegistry.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +31,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Immediate Window" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/00be0fb588be459b8356ff9591cac0f722da0/96/78155da5/Span`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/02bfa03b73f94f5b8947ec21da8cdcba74518/33/2750a868/Span`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5ab729f39b7a4c598fa644cfa103b2981a600/a1/de7563f2/Color.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,6 +42,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/72/1c224e17/SKObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/96/dfafcf1b/SkiaApi.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8132ab6c569241d384a35573c05e031d77a20/a4/46de3cd0/SKAlphaType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a6096d1a80fe4c44b5822c3ab6dc1bf31a600/9a/9eb81574/PsdFile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c06df198e8e44ae6b48d6fc90310b210b508/82/37431d15/CollectionExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d8ebec59be2d4f9db1924aab409e04f69d400/16/028b8372/SegmentedArrayBuilder`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ea9be184c1734be281269821b2d1ca758d28/b7/802abd7c/Color.cs" root0="FORCE_HIGHLIGHTING" />
@@ -86,6 +75,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e33542c1deafc57df01ed9a4cc3f329ac0ebb1ce21ea4cec6c17ae22ca5ab3/MemoryMarshal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e414b1dc488d6da566b0175c5a49dc48f0ea10c0661bed62352395375ebe80ac/EqualityAsserts.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ecdc14a73bdd3aa6ef3a23cbbfbe2c20cc5af3cdb1242ca466013bbd143ec76/Assembly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/PsdSharp.Avalonia/ColorExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.Avalonia/MainWindow.axaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PsdSharp.Samples.SkiaSharp/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -169,7 +159,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.PsdSharp.Samples.Avalonia.executor": "Run",
+    ".NET Project.PsdSharp.Samples.Avalonia.executor": "Debug",
     ".NET Project.PsdSharp.Samples.SkiaSharp.executor": "Debug",
     ".NET Project.PsdSharp.Samples.WPF.executor": "Run",
     ".NET Project.PsdSharp.Samples.Win32.executor": "Run",
@@ -358,7 +348,9 @@
       <workItem from="1760380953738" duration="6823000" />
       <workItem from="1760585391891" duration="4534000" />
       <workItem from="1760814934194" duration="1045000" />
-      <workItem from="1760884997868" duration="20387000" />
+      <workItem from="1760884997868" duration="21111000" />
+      <workItem from="1760912206253" duration="179000" />
+      <workItem from="1761778318851" duration="6226000" />
     </task>
     <servers />
   </component>
@@ -498,6 +490,58 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp.Avalonia/PsdView.cs</url>
+          <line>32</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp.Avalonia/PsdView.cs" containingFunctionPresentation="Property 'PsdFile'">
+            <startOffsets>
+              <option value="860" />
+            </startOffsets>
+            <endOffsets>
+              <option value="911" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp.Avalonia/PsdView.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp.Avalonia/PsdView.cs" containingFunctionPresentation="Property 'PsdFile'">
+            <startOffsets>
+              <option value="928" />
+            </startOffsets>
+            <endOffsets>
+              <option value="972" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs</url>
+          <line>13</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" containingFunctionPresentation="Method 'Parse'">
+            <startOffsets>
+              <option value="419" />
+            </startOffsets>
+            <endOffsets>
+              <option value="802" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs</url>
+          <line>69</line>
+          <properties documentPath="$PROJECT_DIR$/PsdSharp/Parsing/PsdParser.cs" containingFunctionPresentation="Method 'ParseLayerTree'">
+            <startOffsets>
+              <option value="2063" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2081" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

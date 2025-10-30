@@ -58,6 +58,7 @@ public class PsdFile
     public PsdHeader Header { get; private set; }
     
     public IReadOnlyCollection<Layer> Layers { get; internal set; } = [];
+    public IReadOnlyCollection<Layer> RootLayers { get; internal set; } = [];
     public GlobalLayerMaskInfo? GlobalLayerMaskInfo { get; internal set; } = new();
     public TaggedBlocksCollection? TaggedBlocks { get; internal set; } = new([]);
     public IReadOnlyCollection<ImageResource> ImageResources { get; internal set; } = [];

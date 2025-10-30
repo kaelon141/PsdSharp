@@ -5,6 +5,8 @@ namespace PsdSharp;
 
 public class Layer
 {
+    private readonly List<Layer> _children = [];
+    
     internal LayerFlags Flags { get; set; } = new();
     
     public Rectangle Bounds { get; set; }
@@ -19,11 +21,20 @@ public class Layer
         set => Flags.TransparencyProtected = value;
     }
 
+    /// <summary>
+    /// Whether this layer is set to visible or not. Can be overriden by the visibility of parent layers.
+    /// </summary>
+    /// <remarks>Use the <see cref="ShouldBeVisible"/> property to check the layer visibility when combined with parent layer settings.</remarks>
     public bool IsVisible
     {
         get => Flags.IsVisible;
         set => Flags.IsVisible = value;
     }
+
+    /// <summary>
+    /// Whether this layer should be visible, based on the layer's own visibility and the visibility of its parent layers.
+    /// </summary>
+    public bool ShouldBeVisible => Parent is not null ? Parent.ShouldBeVisible && Flags.IsVisible : Flags.IsVisible;
 
     public bool PixelDataIrrelevantToAppearanceOfDocument
     {
@@ -40,6 +51,14 @@ public class Layer
     public TaggedBlocksCollection TaggedBlocks { get; set; } = new([]);
     
     public ImageData? ImageData { get; set; }
+    
+    public Layer? Parent { get; internal set; }
+    public IReadOnlyCollection<Layer> Children => _children.AsReadOnly();
+
+    internal void AddChild(Layer layer)
+    {
+        _children.Add(layer);
+    }
 }
 
 public class Channel
