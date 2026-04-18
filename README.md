@@ -1,3 +1,5 @@
+NOTE: If you're looking at this on GitHub, this is a mirror of https://git.kaelon.dev/kaelon/PsdSharp. Issues and Pull requests are disabled. Please open issues and PR s on [git.kaelon.dev](https://git.kaelon.dev/kaelon/PsdSharp). You can login with your GitHub account.
+
 # 🎨 PsdSharp
 [![NuGet](https://img.shields.io/nuget/v/PsdSharp.svg?style=flat-square)](https://www.nuget.org/packages/PsdSharp/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
